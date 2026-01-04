@@ -40,44 +40,30 @@
 
     /* Banner */
     .hero{
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: var(--shadow);
-    }
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
 
-    /* Tämä on "yläbanneri jossa kukat ja Satu & Ville 1.8.2026"
-       - korvaa halutessasi background-image omalla banneri-PNG:llä */
-    .hero-banner{
-      position: relative;
-      min-height: 320px;
-      padding: 32px 20px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      background:
-        radial-gradient(1200px 300px at 50% 0%, rgba(238,214,217,.55), transparent 60%),
-        radial-gradient(900px 260px at 50% 15%, rgba(216,226,238,.45), transparent 62%),
-        radial-gradient(900px 260px at 30% 0%, rgba(243,199,166,.35), transparent 60%),
-        linear-gradient(180deg, #ffffff 0%, #fbf7f3 100%);
-    }
+.hero-banner{
+  background: #F4EFEA; /* tausta jos kuvassa on läpinäkyvyyttä */
+}
 
-    /* Kukat: kevyt "vesiväri"-koriste ilman ulkoisia kuvia */
-    .florals{
-      position:absolute;
-      inset: 0;
-      pointer-events:none;
-      opacity: .95;
-      background:
-        radial-gradient(120px 80px at 20% 28%, rgba(238,214,217,.85), transparent 60%),
-        radial-gradient(140px 90px at 28% 20%, rgba(243,199,166,.75), transparent 60%),
-        radial-gradient(160px 110px at 40% 22%, rgba(216,226,238,.80), transparent 60%),
-        radial-gradient(150px 100px at 55% 20%, rgba(221,230,220,.75), transparent 60%),
-        radial-gradient(140px 90px at 70% 22%, rgba(243,199,166,.70), transparent 60%),
-        radial-gradient(120px 80px at 82% 28%, rgba(238,214,217,.85), transparent 60%);
-      filter: blur(0.2px);
-    }
+.hero-img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+    
+.hero-img{
+  width:100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+}
+
 
     .names{
       position: relative;
@@ -191,27 +177,18 @@
 <body>
   <div class="wrap">
     <header class="hero">
-      <div class="hero-banner">
-        <div class="florals" aria-hidden="true"></div>
+    <div class="hero-banner">
+      <img class="hero-img" src="banneri.png" alt="Satu & Ville" />
+    </div>
 
-        <div class="names">
-          <h1>Satu &amp; Ville</h1>
-          <div class="date" aria-label="Päivämäärä">
-            <span class="line" aria-hidden="true"></span>
-            <span>1.8.2026</span>
-            <span class="line" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
-
-      <nav aria-label="Päävalikko">
-        <a class="navlink home" href="index.html">Etusivu</a>
-        <a class="navlink place" href="haapaikka.html">Hääpaikka</a>
-        <a class="navlink travel" href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
-        <a class="navlink stay" href="majoittuminen.html">Majoittuminen</a>
-        <a class="navlink rsvp" href="ilmoittautuminen.html">Ilmoittautuminen</a>
-        <a class="navlink gifts" href="muistamiset.html">Muistamiset</a>
-      </nav>
+    <nav aria-label="Päävalikko">
+      <a class="navlink home" href="index.html">Etusivu</a>
+      <a class="navlink place" href="haapaikka.html">Hääpaikka</a>
+      <a class="navlink travel" href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
+      <a class="navlink stay" href="majoittuminen.html">Majoittuminen</a>
+      <a class="navlink rsvp" href="ilmoittautuminen.html">Ilmoittautuminen</a>
+      <a class="navlink gifts" href="muistamiset.html">Muistamiset</a>
+    </nav>
     </header>
 
     <main class="content">
