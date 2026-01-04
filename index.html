@@ -7,28 +7,28 @@
 
   <style>
     :root{
-      --bg: #F4EFEA;      /* pellava */
-      --blush: #EED6D9;   /* roosa */
-      --peach: #F3C7A6;   /* persikka */
-      --sage: #DDE6DC;    /* salvia */
-      --blue: #D8E2EE;    /* siniharmaa */
+      /* Antamasi värit */
+      --pink: #E8C6CF;
+      --lilac: #EEE3F1;
+      --blue: #D1E8EE;
+      --sage: #B9C6B2;
+
+      --bg: #F6F4F2;
       --text: #4A4A4A;
       --taupe: #8B7E74;
-      --card: rgba(255,255,255,0.85);
+      --card: rgba(255,255,255,0.9);
       --border: rgba(0,0,0,0.08);
       --shadow: 0 10px 30px rgba(0,0,0,0.06);
     }
 
-    *{ box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
     body{
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
-        linear-gradient(180deg, var(--bg), #f7f2ed);
-      background-size: 6px 6px, auto;
+        linear-gradient(180deg, var(--lilac), var(--bg));
     }
 
     .wrap{
@@ -37,7 +37,7 @@
       padding: 20px 16px 60px;
     }
 
-    /* ===== HERO / BANNERI ===== */
+    /* ===== BANNERI ===== */
     header.hero{
       background: white;
       border-radius: 24px;
@@ -47,13 +47,27 @@
     }
 
     .hero-banner{
-      background: var(--bg);
+      background: var(--lilac);
+      text-align: center;
     }
 
     .hero-banner img{
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    /* Päivämäärä kuvan alla */
+    .hero-date{
+      padding: 14px 0 18px;
+      font-size: 18px;
+      letter-spacing: 2px;
+      color: var(--taupe);
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0.6)
+      );
     }
 
     /* ===== NAVIGAATIO ===== */
@@ -73,7 +87,6 @@
       padding: 10px 16px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: var(--card);
       box-shadow: 0 6px 18px rgba(0,0,0,0.04);
       transition: transform 0.15s ease;
       white-space: nowrap;
@@ -83,17 +96,17 @@
       transform: translateY(-1px);
     }
 
-    /* hienovarainen värivaihtelu */
-    .etusivu{ background: rgba(238,214,217,0.6); }
-    .haapaikka{ background: rgba(238,214,217,0.6); }
-    .paikalle{ background: rgba(238,214,217,0.6); }
-    .majoitus{ background: rgba(238,214,217,0.6); }
-    .ilmo{ background: rgba(238,214,217,0.6); }
-    .muistamiset{ background: rgba(238,214,217,0.6); }
+    /* Värit linkeille */
+    .etusivu{ background: var(--pink); }
+    .haapaikka{ background: var(--lilac); }
+    .paikalle{ background: var(--blue); }
+    .majoitus{ background: var(--sage); }
+    .ilmo{ background: white; }
+    .muistamiset{ background: var(--pink); }
 
     /* ===== SISÄLTÖ ===== */
     main{
-      margin-top: 20px;
+      margin-top: 24px;
       display: flex;
       justify-content: center;
     }
@@ -101,7 +114,7 @@
     .card{
       max-width: 900px;
       background: var(--card);
-      padding: 20px;
+      padding: 22px;
       border-radius: 18px;
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
@@ -125,8 +138,8 @@
     }
 
     @media (max-width: 520px){
-      nav a{
-        padding: 10px 14px;
+      .hero-date{
+        font-size: 16px;
       }
     }
   </style>
@@ -137,7 +150,8 @@
 
     <header class="hero">
       <div class="hero-banner">
-        <img src="banneri.png" alt="Satu & Ville – 1.8.2026">
+        <img src="banneri.png" alt="Satu & Ville">
+        <div class="hero-date">1.8.2026</div>
       </div>
 
       <nav>
@@ -156,8 +170,7 @@
         <p>
           Me mennään naimisiin 🤍  
           Olemme iloisia saadessamme kutsua teidät mukaan juhlistamaan
-          elämämme yhtä tärkeimmistä päivistä.  
-          Tältä sivulta löydät kaikki häihin liittyvät tärkeät tiedot.
+          elämämme yhtä tärkeimmistä päivistä.
         </p>
       </section>
     </main>
