@@ -29,4 +29,205 @@
       background:
         radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
         linear-gradient(180deg, var(--bg) 0%, #f6f1ec 35%, var(--bg) 100%);
-      background-
+      background-size: 6px 6px, auto;
+    }
+
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 16px 64px;
+    }
+
+    /* Banner */
+    .hero{
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    /* Tämä on "yläbanneri jossa kukat ja Satu & Ville 1.8.2026"
+       - korvaa halutessasi background-image omalla banneri-PNG:llä */
+    .hero-banner{
+      position: relative;
+      min-height: 320px;
+      padding: 32px 20px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        radial-gradient(1200px 300px at 50% 0%, rgba(238,214,217,.55), transparent 60%),
+        radial-gradient(900px 260px at 50% 15%, rgba(216,226,238,.45), transparent 62%),
+        radial-gradient(900px 260px at 30% 0%, rgba(243,199,166,.35), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #fbf7f3 100%);
+    }
+
+    /* Kukat: kevyt "vesiväri"-koriste ilman ulkoisia kuvia */
+    .florals{
+      position:absolute;
+      inset: 0;
+      pointer-events:none;
+      opacity: .95;
+      background:
+        radial-gradient(120px 80px at 20% 28%, rgba(238,214,217,.85), transparent 60%),
+        radial-gradient(140px 90px at 28% 20%, rgba(243,199,166,.75), transparent 60%),
+        radial-gradient(160px 110px at 40% 22%, rgba(216,226,238,.80), transparent 60%),
+        radial-gradient(150px 100px at 55% 20%, rgba(221,230,220,.75), transparent 60%),
+        radial-gradient(140px 90px at 70% 22%, rgba(243,199,166,.70), transparent 60%),
+        radial-gradient(120px 80px at 82% 28%, rgba(238,214,217,.85), transparent 60%);
+      filter: blur(0.2px);
+    }
+
+    .names{
+      position: relative;
+      z-index: 1;
+      color: var(--taupe);
+      letter-spacing: .5px;
+    }
+
+    .names h1{
+      margin: 0;
+      font-size: clamp(40px, 6vw, 72px);
+      font-family: ui-serif, "Georgia", "Times New Roman", serif;
+      font-weight: 500;
+    }
+
+    .names .date{
+      margin-top: 10px;
+      font-size: 18px;
+      letter-spacing: 2px;
+      color: rgba(139,126,116,.9);
+      display: inline-flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .names .line{
+      height: 1px;
+      width: 64px;
+      background: rgba(139,126,116,.35);
+    }
+
+    /* Navigaatio bannerin alle */
+    nav{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 14px 14px 18px;
+      background: #fff;
+      border-top: 1px solid var(--border);
+    }
+
+    .navlink{
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 6px 18px rgba(0,0,0,.04);
+      transition: transform .12s ease, background .12s ease;
+      white-space: nowrap;
+    }
+    .navlink:hover{ transform: translateY(-1px); }
+    .navlink:focus{ outline: 3px solid rgba(216,226,238,.8); outline-offset: 2px; }
+
+    /* Pieni värivaihtelu napeille (pehmeä) */
+    .navlink.home { background: rgba(238,214,217,.55); }
+    .navlink.place { background: rgba(243,199,166,.40); }
+    .navlink.travel{ background: rgba(216,226,238,.55); }
+    .navlink.stay  { background: rgba(221,230,220,.55); }
+    .navlink.rsvp  { background: rgba(255,255,255,.85); }
+    .navlink.gifts { background: rgba(238,214,217,.35); }
+
+    /* Etusivun sisältö */
+    .content{
+      margin-top: 18px;
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+    }
+
+    .card{
+      width: min(900px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2{
+      margin: 0 0 8px;
+      color: var(--taupe);
+      font-size: 22px;
+      font-weight: 650;
+    }
+
+    .card p{
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    footer{
+      text-align:center;
+      color: rgba(74,74,74,.7);
+      padding: 28px 16px 40px;
+      font-size: 13px;
+    }
+
+    /* Mobiili: banner hiukan matalammaksi */
+    @media (max-width: 520px){
+      .hero-banner{ min-height: 270px; }
+      nav{ padding: 12px 12px 16px; }
+      .navlink{ padding: 10px 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero-banner">
+        <div class="florals" aria-hidden="true"></div>
+
+        <div class="names">
+          <h1>Satu &amp; Ville</h1>
+          <div class="date" aria-label="Päivämäärä">
+            <span class="line" aria-hidden="true"></span>
+            <span>1.8.2026</span>
+            <span class="line" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+
+      <nav aria-label="Päävalikko">
+        <a class="navlink home" href="index.html">Etusivu</a>
+        <a class="navlink place" href="haapaikka.html">Hääpaikka</a>
+        <a class="navlink travel" href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
+        <a class="navlink stay" href="majoittuminen.html">Majoittuminen</a>
+        <a class="navlink rsvp" href="ilmoittautuminen.html">Ilmoittautuminen</a>
+        <a class="navlink gifts" href="muistamiset.html">Muistamiset</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="card">
+        <h2>Tervetuloa</h2>
+        <p>
+          Me mennään naimisiin! 🤍 Olemme iloisia saadessamme kutsua teidät mukaan juhlistamaan
+          päiväämme. Tältä sivulta löydät kaikki häihin liittyvät tärkeät tiedot – hääpaikasta,
+          saapumisesta ja majoittumisesta aina ilmoittautumiseen ja muistamisiin.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <small>Satu &amp; Ville • 1.8.2026</small>
+    </footer>
+  </div>
+</body>
+</html>
