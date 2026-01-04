@@ -1,210 +1,171 @@
 <!doctype html>
 <html lang="fi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Satu & Ville – 1.8.2026</title>
 
   <style>
     :root{
-      /* Värimaailma (poimittu kukkakuvista) */
-      --bg: #F4EFEA;          /* lämmin pellava */
-      --blush: #EED6D9;       /* puuteriroosa */
-      --peach: #F3C7A6;       /* persikka */
-      --sage: #DDE6DC;        /* vaalea salvia */
-      --blue: #D8E2EE;        /* hento siniharmaa */
-      --text: #4A4A4A;        /* tumma lämmin harmaa */
-      --taupe: #8B7E74;       /* lämmin taupe */
+      --bg: #F4EFEA;      /* pellava */
+      --blush: #EED6D9;   /* roosa */
+      --peach: #F3C7A6;   /* persikka */
+      --sage: #DDE6DC;    /* salvia */
+      --blue: #D8E2EE;    /* siniharmaa */
+      --text: #4A4A4A;
+      --taupe: #8B7E74;
       --card: rgba(255,255,255,0.85);
       --border: rgba(0,0,0,0.08);
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
-      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
     }
 
-    * { box-sizing: border-box; }
+    *{ box-sizing: border-box; }
+
     body{
-      margin:0;
-      color: var(--text);
+      margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
       background:
         radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
-        linear-gradient(180deg, var(--bg) 0%, #f6f1ec 35%, var(--bg) 100%);
+        linear-gradient(180deg, var(--bg), #f7f2ed);
       background-size: 6px 6px, auto;
     }
 
     .wrap{
       max-width: 1100px;
       margin: 0 auto;
-      padding: 18px 16px 64px;
+      padding: 20px 16px 60px;
     }
 
-    /* Banner */
-    .hero{
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 24px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
-}
-
-.hero-banner{
-  background: #F4EFEA; /* tausta jos kuvassa on läpinäkyvyyttä */
-}
-
-.hero-img{
-  width: 100%;
-  height: auto;
-  display: block;
-}
-    
-.hero-img{
-  width:100%;
-  height: 320px;
-  object-fit: cover;
-  object-position: center;
-}
-
-
-    .names{
-      position: relative;
-      z-index: 1;
-      color: var(--taupe);
-      letter-spacing: .5px;
+    /* ===== HERO / BANNERI ===== */
+    header.hero{
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
-    .names h1{
-      margin: 0;
-      font-size: clamp(40px, 6vw, 72px);
-      font-family: ui-serif, "Georgia", "Times New Roman", serif;
-      font-weight: 500;
+    .hero-banner{
+      background: var(--bg);
     }
 
-    .names .date{
-      margin-top: 10px;
-      font-size: 18px;
-      letter-spacing: 2px;
-      color: rgba(139,126,116,.9);
-      display: inline-flex;
-      gap: 14px;
-      align-items: center;
-      justify-content: center;
+    .hero-banner img{
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
-    .names .line{
-      height: 1px;
-      width: 64px;
-      background: rgba(139,126,116,.35);
-    }
-
-    /* Navigaatio bannerin alle */
+    /* ===== NAVIGAATIO ===== */
     nav{
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
       justify-content: center;
-      padding: 14px 14px 18px;
-      background: #fff;
+      gap: 10px;
+      padding: 16px;
       border-top: 1px solid var(--border);
+      background: white;
     }
 
-    .navlink{
+    nav a{
       text-decoration: none;
       color: var(--text);
-      padding: 10px 14px;
+      padding: 10px 16px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--card);
-      box-shadow: 0 6px 18px rgba(0,0,0,.04);
-      transition: transform .12s ease, background .12s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      transition: transform 0.15s ease;
       white-space: nowrap;
     }
-    .navlink:hover{ transform: translateY(-1px); }
-    .navlink:focus{ outline: 3px solid rgba(216,226,238,.8); outline-offset: 2px; }
 
-    /* Pieni värivaihtelu napeille (pehmeä) */
-    .navlink.home { background: rgba(238,214,217,.55); }
-    .navlink.place { background: rgba(243,199,166,.40); }
-    .navlink.travel{ background: rgba(216,226,238,.55); }
-    .navlink.stay  { background: rgba(221,230,220,.55); }
-    .navlink.rsvp  { background: rgba(255,255,255,.85); }
-    .navlink.gifts { background: rgba(238,214,217,.35); }
+    nav a:hover{
+      transform: translateY(-1px);
+    }
 
-    /* Etusivun sisältö */
-    .content{
-      margin-top: 18px;
-      display: grid;
-      gap: 16px;
-      justify-items: center;
+    /* hienovarainen värivaihtelu */
+    .etusivu{ background: rgba(238,214,217,0.6); }
+    .haapaikka{ background: rgba(243,199,166,0.45); }
+    .paikalle{ background: rgba(216,226,238,0.6); }
+    .majoitus{ background: rgba(221,230,220,0.6); }
+    .ilmo{ background: rgba(255,255,255,0.9); }
+    .muistamiset{ background: rgba(238,214,217,0.4); }
+
+    /* ===== SISÄLTÖ ===== */
+    main{
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
     }
 
     .card{
-      width: min(900px, 100%);
+      max-width: 900px;
       background: var(--card);
+      padding: 20px;
+      border-radius: 18px;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 18px;
       box-shadow: var(--shadow);
     }
 
     .card h2{
-      margin: 0 0 8px;
+      margin-top: 0;
       color: var(--taupe);
-      font-size: 22px;
-      font-weight: 650;
     }
 
     .card p{
-      margin: 0;
       line-height: 1.6;
+      margin-bottom: 0;
     }
 
     footer{
-      text-align:center;
-      color: rgba(74,74,74,.7);
-      padding: 28px 16px 40px;
+      text-align: center;
+      margin-top: 40px;
       font-size: 13px;
+      color: rgba(74,74,74,0.7);
     }
 
-    /* Mobiili: banner hiukan matalammaksi */
     @media (max-width: 520px){
-      .hero-banner{ min-height: 270px; }
-      nav{ padding: 12px 12px 16px; }
-      .navlink{ padding: 10px 12px; }
+      nav a{
+        padding: 10px 14px;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header class="hero">
-    <div class="hero-banner">
-      <img class="hero-img" src="banneri.png" alt="Satu & Ville" />
-    </div>
 
-    <nav aria-label="Päävalikko">
-      <a class="navlink home" href="index.html">Etusivu</a>
-      <a class="navlink place" href="haapaikka.html">Hääpaikka</a>
-      <a class="navlink travel" href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
-      <a class="navlink stay" href="majoittuminen.html">Majoittuminen</a>
-      <a class="navlink rsvp" href="ilmoittautuminen.html">Ilmoittautuminen</a>
-      <a class="navlink gifts" href="muistamiset.html">Muistamiset</a>
-    </nav>
+    <header class="hero">
+      <div class="hero-banner">
+        <img src="banneri.png" alt="Satu & Ville – 1.8.2026">
+      </div>
+
+      <nav>
+        <a class="etusivu" href="index.html">Etusivu</a>
+        <a class="haapaikka" href="haapaikka.html">Hääpaikka</a>
+        <a class="paikalle" href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
+        <a class="majoitus" href="majoittuminen.html">Majoittuminen</a>
+        <a class="ilmo" href="ilmoittautuminen.html">Ilmoittautuminen</a>
+        <a class="muistamiset" href="muistamiset.html">Muistamiset</a>
+      </nav>
     </header>
 
-    <main class="content">
+    <main>
       <section class="card">
         <h2>Tervetuloa</h2>
         <p>
-          Me mennään naimisiin! 🤍 Olemme iloisia saadessamme kutsua teidät mukaan juhlistamaan
-          päiväämme. Tältä sivulta löydät kaikki häihin liittyvät tärkeät tiedot – hääpaikasta,
-          saapumisesta ja majoittumisesta aina ilmoittautumiseen ja muistamisiin.
+          Me mennään naimisiin 🤍  
+          Olemme iloisia saadessamme kutsua teidät mukaan juhlistamaan
+          elämämme yhtä tärkeimmistä päivistä.  
+          Tältä sivulta löydät kaikki häihin liittyvät tärkeät tiedot.
         </p>
       </section>
     </main>
 
     <footer>
-      <small>Satu &amp; Ville • 1.8.2026</small>
+      Satu & Ville • 1.8.2026
     </footer>
+
   </div>
 </body>
 </html>
