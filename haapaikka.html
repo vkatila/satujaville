@@ -1,1 +1,169 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Satu & Ville – 1.8.2026</title>
+
+  <style>
+    :root{
+      --bg: #F4EFEA;      /* pellava */
+      --blush: #EED6D9;   /* roosa */
+      --peach: #F3C7A6;   /* persikka */
+      --sage: #DDE6DC;    /* salvia */
+      --blue: #D8E2EE;    /* siniharmaa */
+      --text: #4A4A4A;
+      --taupe: #8B7E74;
+      --card: rgba(255,255,255,0.85);
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+        linear-gradient(180deg, var(--bg), #f7f2ed);
+      background-size: 6px 6px, auto;
+    }
+
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 16px 60px;
+    }
+
+    /* ===== HERO / BANNERI ===== */
+    header.hero{
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-banner{
+      background: var(--bg);
+    }
+
+    .hero-banner img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ===== NAVIGAATIO ===== */
+    nav{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      background: rgba(247, 242, 241, 1);
+    }
+
+    nav a{
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      transition: transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    nav a:hover{
+      transform: translateY(-1px);
+    }
+
+    /* hienovarainen värivaihtelu */
+    .etusivu{ background: rgba(238,214,217,0.6); }
+    .haapaikka{ background: rgba(238,214,217,0.6); }
+    .paikalle{ background: rgba(238,214,217,0.6); }
+    .majoitus{ background: rgba(238,214,217,0.6); }
+    .ilmo{ background: rgba(238,214,217,0.6); }
+    .muistamiset{ background: rgba(238,214,217,0.6); }
+
+    /* ===== SISÄLTÖ ===== */
+    main{
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card{
+      max-width: 1100px;
+      background: rgba(247, 242, 241, 1);
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .card h2{
+      margin-top: 0;
+      color: var(--taupe);
+    }
+
+    .card p{
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    footer{
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      color: rgba(74,74,74,0.7);
+    }
+
+    @media (max-width: 520px){
+      nav a{
+        padding: 10px 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="hero">
+      <div class="hero-banner">
+        <img src="banneri.png" alt="Satu & Ville – 1.8.2026">
+      </div>
+
+      <nav>
+        <a class="etusivu" href="index.html">Etusivu</a>
+        <a class="haapaikka" href="haapaikka.html">Hääpaikka</a>
+        <a class="paikalle" href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
+        <a class="majoitus" href="majoittuminen.html">Majoittuminen</a>
+        <a class="ilmo" href="ilmoittautuminen.html">Ilmoittautuminen</a>
+        <a class="muistamiset" href="muistamiset.html">Muistamiset</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Majoitus</h2>
+        <p>
+          LUPPIO ON TOSI HIENO PAIKKA!!!
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      Satu & Ville • 1.8.2026
+    </footer>
+
+  </div>
+</body>
+</html>
 
