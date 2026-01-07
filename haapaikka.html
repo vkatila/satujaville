@@ -28,40 +28,7 @@
       height: 100%;
       object-fit: cover; /* Pitää videon suhteet oikein ja täyttää koko tilan */
     }
-
-    /* Sisältö videon päällä */
-    .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      text-align: center;
-      font-size: 24px;
-    }
-
-    /* Navigaation tyylit */
-    nav {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-
-    nav a {
-      padding: 12px 18px;
-      border-radius: 12px;
-      background-color: rgba(255, 255, 255, 0.7);
-      color: #4A4A4A;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      background-color: rgba(255, 255, 255, 0.9);
-    }
-
+    
     /* Responsiivisuus mobiililaitteille */
     @media (max-width: 768px) {
       .content {
@@ -85,16 +52,6 @@
       Videon toisto ei ole tuettu.
     </video>
   </div>
-
-  <!-- Navigaatio -->
-  <nav>
-    <a href="index.html">Etusivu</a>
-    <a href="haapaikka.html">Hääpaikka</a>
-    <a href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
-    <a href="majoittuminen.html">Majoittuminen</a>
-    <a href="ilmoittautuminen.html">Ilmoittautuminen</a>
-    <a href="muistamiset.html">Muistamiset</a>
-  </nav>
 
 </body>
 </html>
