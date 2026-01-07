@@ -1,169 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Satu & Ville – 1.8.2026</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kutsukortti Animaatio</title>
   <style>
-    :root{
-      --bg: #F4EFEA;      /* pellava */
-      --blush: #EED6D9;   /* roosa */
-      --peach: #F3C7A6;   /* persikka */
-      --sage: #DDE6DC;    /* salvia */
-      --blue: #D8E2EE;    /* siniharmaa */
-      --text: #4A4A4A;
-      --taupe: #8B7E74;
-      --card: rgba(255,255,255,0.85);
-      --border: rgba(0,0,0,0.08);
-      --shadow: 0 10px 30px rgba(0,0,0,0.06);
-    }
-
-    *{ box-sizing: border-box; }
-
-    body{
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #F4EFEA; /* Valitsemasi vaalea taustaväri */
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
-        linear-gradient(180deg, var(--bg), #f7f2ed);
-      background-size: 6px 6px, auto;
+      font-family: system-ui, sans-serif;
     }
 
-    .wrap{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 16px 60px;
-    }
-
-    /* ===== HERO / BANNERI ===== */
-    header.hero{
-      background: white;
-      border-radius: 24px;
+    .envelope-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      cursor: pointer;
+      background-color: #EEE3F1; /* Valitsemasi lilavihreä sävy */
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
+      transform-origin: bottom;
     }
 
-    .hero-banner{
-      background: var(--bg);
-    }
-
-    .hero-banner img{
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* ===== NAVIGAATIO ===== */
-    nav{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px;
-      border-top: 1px solid var(--border);
-      background: rgba(247, 242, 241, 1);
-    }
-
-    nav a{
-      text-decoration: none;
-      color: var(--text);
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-      transition: transform 0.15s ease;
-      white-space: nowrap;
-    }
-
-    nav a:hover{
-      transform: translateY(-1px);
-    }
-
-    /* hienovarainen värivaihtelu */
-    .etusivu{ background: rgba(238,214,217,0.6); }
-    .haapaikka{ background: rgba(238,214,217,0.6); }
-    .paikalle{ background: rgba(238,214,217,0.6); }
-    .majoitus{ background: rgba(238,214,217,0.6); }
-    .ilmo{ background: rgba(238,214,217,0.6); }
-    .muistamiset{ background: rgba(238,214,217,0.6); }
-
-    /* ===== SISÄLTÖ ===== */
-    main{
-      margin-top: 20px;
+    /* Vahasinetti */
+    .wax-seal {
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #E8C6CF; /* Punainen vahasinetin väri */
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       display: flex;
       justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      z-index: 2;
     }
 
-    .card{
-      max-width: 1100px;
-      background: rgba(247, 242, 241, 1);
+    /* Kutsukortin rakenne */
+    .invitation-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scaleY(0);
+      width: 80%;
+      height: 90%;
+      background: #F3C7A6; /* Valitsemasi persikka sävy */
+      border-radius: 10px;
+      transition: transform 0.8s ease-in-out;
       padding: 20px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
+      box-sizing: border-box;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
     }
 
-    .card h2{
-      margin-top: 0;
-      color: var(--taupe);
+    .invitation-card.open {
+      transform: translate(-50%, -50%) scaleY(1); /* Kutsukortti avautuu */
     }
 
-    .card p{
-      line-height: 1.6;
-      margin-bottom: 0;
-    }
-
-    footer{
+    /* Sisältö kutsukortissa */
+    .invitation-card h1 {
+      color: #4A4A4A;
       text-align: center;
-      margin-top: 40px;
-      font-size: 13px;
-      color: rgba(74,74,74,0.7);
+      margin: 0;
     }
 
-    @media (max-width: 520px){
-      nav a{
-        padding: 10px 14px;
-      }
+    .invitation-card p {
+      color: #8B7E74; /* Lämmin taupe */
+      text-align: center;
     }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
 
-    <header class="hero">
-      <div class="hero-banner">
-        <img src="banneri.png" alt="Satu & Ville – 1.8.2026">
-      </div>
-
-      <nav>
-        <a class="etusivu" href="index.html">Etusivu</a>
-        <a class="haapaikka" href="haapaikka.html">Hääpaikka</a>
-        <a class="paikalle" href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
-        <a class="majoitus" href="majoittuminen.html">Majoittuminen</a>
-        <a class="ilmo" href="ilmoittautuminen.html">Ilmoittautuminen</a>
-        <a class="muistamiset" href="muistamiset.html">Muistamiset</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="card">
-        <h2>Majoitus</h2>
-        <p>
-          LUPPIO ON TOSI HIENO PAIKKA!!!
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      Satu & Ville • 1.8.2026
-    </footer>
-
+  <div class="envelope-container">
+    <!-- Vahasinetti -->
+    <div class="wax-seal">W</div>
+    
+    <!-- Kutsukortti -->
+    <div class="invitation-card">
+      <h1>Satu & Ville</h1>
+      <p>Häät 1.8.2026 – Tervetuloa juhlimaan kanssamme!</p>
+    </div>
   </div>
+
+  <script>
+    // Animaatio käynnistyy, kun vahasinettistä klikataan
+    const waxSeal = document.querySelector('.wax-seal');
+    const invitationCard = document.querySelector('.invitation-card');
+
+    waxSeal.addEventListener('click', () => {
+      invitationCard.classList.toggle('open');
+    });
+  </script>
+  
 </body>
 </html>
-
