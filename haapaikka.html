@@ -3,105 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kutsukortti Animaatio</title>
+  <title>Satu & Ville – 1.8.2026</title>
   <style>
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #F4EFEA; /* Valitsemasi vaalea taustaväri */
       margin: 0;
       font-family: system-ui, sans-serif;
+      background-color: #F4EFEA;
+      overflow-x: hidden; /* Estää vaakasivun vierityksen */
     }
 
-    .envelope-container {
+    /* Videon tyylit */
+    .video-container {
       position: relative;
-      width: 300px;
-      height: 200px;
-      cursor: pointer;
-      background-color: #EEE3F1; /* Valitsemasi lilavihreä sävy */
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      height: 100vh; /* Täyttää koko näytön korkeuden */
       overflow: hidden;
-      transform-origin: bottom;
     }
 
-    /* Vahasinetti */
-    .wax-seal {
+    video {
       position: absolute;
-      top: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #E8C6CF; /* Punainen vahasinetin väri */
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Pitää videon suhteet oikein ja täyttää koko tilan */
     }
 
-    /* Kutsukortin rakenne */
-    .invitation-card {
+    /* Sisältö videon päällä */
+    .content {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scaleY(0);
-      width: 80%;
-      height: 90%;
-      background: #F3C7A6; /* Valitsemasi persikka sävy */
-      border-radius: 10px;
-      transition: transform 0.8s ease-in-out;
-      padding: 20px;
-      box-sizing: border-box;
-      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      font-size: 24px;
     }
 
-    .invitation-card.open {
-      transform: translate(-50%, -50%) scaleY(1); /* Kutsukortti avautuu */
+    /* Navigaation tyylit */
+    nav {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
     }
 
-    /* Sisältö kutsukortissa */
-    .invitation-card h1 {
+    nav a {
+      padding: 12px 18px;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.7);
       color: #4A4A4A;
-      text-align: center;
-      margin: 0;
+      text-decoration: none;
     }
 
-    .invitation-card p {
-      color: #8B7E74; /* Lämmin taupe */
-      text-align: center;
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.9);
     }
+
+    /* Responsiivisuus mobiililaitteille */
+    @media (max-width: 768px) {
+      .content {
+        font-size: 18px;
+      }
+
+      nav a {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <div class="envelope-container">
-    <!-- Vahasinetti -->
-    <div class="wax-seal">W</div>
-    
-    <!-- Kutsukortti -->
-    <div class="invitation-card">
+  <!-- Video -->
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="Video.mp4" type="video/mp4">
+      Videon toisto ei ole tuettu.
+    </video>
+    <div class="content">
       <h1>Satu & Ville</h1>
       <p>Häät 1.8.2026 – Tervetuloa juhlimaan kanssamme!</p>
     </div>
   </div>
 
-  <script>
-    // Animaatio käynnistyy, kun vahasinettistä klikataan
-    const waxSeal = document.querySelector('.wax-seal');
-    const invitationCard = document.querySelector('.invitation-card');
+  <!-- Navigaatio -->
+  <nav>
+    <a href="index.html">Etusivu</a>
+    <a href="haapaikka.html">Hääpaikka</a>
+    <a href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
+    <a href="majoittuminen.html">Majoittuminen</a>
+    <a href="ilmoittautuminen.html">Ilmoittautuminen</a>
+    <a href="muistamiset.html">Muistamiset</a>
+  </nav>
 
-    waxSeal.addEventListener('click', () => {
-      invitationCard.classList.toggle('open');
-    });
-  </script>
-  
 </body>
 </html>
