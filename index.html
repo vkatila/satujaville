@@ -1,172 +1,189 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Satu & Ville – 1.8.2026</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satu & Ville – 25.7.2026</title>
 
   <style>
-    :root{
-      --bg: #F4EFEA;      /* pellava */
-      --blush: #EED6D9;   /* roosa */
-      --peach: #F3C7A6;   /* persikka */
-      --sage: #DDE6DC;    /* salvia */
-      --blue: #D8E2EE;    /* siniharmaa */
-      --text: #4A4A4A;
-      --taupe: #8B7E74;
-      --card: rgba(255,255,255,0.85);
-      --border: rgba(0,0,0,0.08);
-      --shadow: 0 10px 30px rgba(0,0,0,0.06);
-    }
-
-    *{ box-sizing: border-box; }
-
     body{
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
-        linear-gradient(180deg, var(--bg), #f7f2ed);
-      background-size: 6px 6px, auto;
+      margin:0;
+      font-family: system-ui, sans-serif;
+      background-color: rgba(247, 242, 241, 1);
+      overflow-x:hidden;
     }
 
-    .wrap{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 16px 60px;
-    }
-
-    /* ===== HERO / BANNERI ===== */
-    header.hero{
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-banner{
-      background: var(--bg);
-    }
-
-    .hero-banner img{
+    /* ===== VIDEO + BANNERI ===== */
+    .video-container{
+      position: relative;
       width: 100%;
-      height: auto;
+      height: 100vh;           /* video täyttää aluksi ruudun */
+      overflow: hidden;
       display: block;
     }
 
-    /* ===== NAVIGAATIO ===== */
-    nav{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 16px;
-      border-top: 1px solid var(--border);
-      background: rgba(247, 242, 241, 1);
+    video{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    nav a{
-      text-decoration: none;
-      color: var(--text);
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-      transition: transform 0.15s ease;
-      white-space: nowrap;
+    .banner-image{
+      display: none;           /* näytetään videon jälkeen */
+      position: relative;
+      width: 100%;
+      height: auto;
     }
 
-    nav a:hover{
-      transform: translateY(-1px);
+    .banner-image img{
+      width: 100%;
+      height: auto;            /* säilyttää mittasuhteet */
+      display: block;
     }
-
-    /* hienovarainen värivaihtelu */
-    .etusivu{ background: rgba(238,214,217,0.6); }
-    .haapaikka{ background: rgba(238,214,217,0.6); }
-    .paikalle{ background: rgba(238,214,217,0.6); }
-    .majoitus{ background: rgba(238,214,217,0.6); }
-    .ilmo{ background: rgba(238,214,217,0.6); }
-    .muistamiset{ background: rgba(238,214,217,0.6); }
 
     /* ===== SISÄLTÖ ===== */
-    main{
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .card{
-      max-width: 1100px;
-      background: rgba(247, 242, 241, 1);
+    .container{
+      width: 100%;
       padding: 20px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
+      box-sizing: border-box;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .card h2{
-      margin-top: 0;
-      color: var(--taupe);
+    h1,h2,h3{ color:#4A4A4A; }
+    p{ font-size:16px; color:#4A4A4A; line-height:1.6; }
+
+    img.content-img{
+      width:100%;
+      height:auto;
+      border-radius:8px;
+      margin-top:20px;
+      display:block;
     }
 
-    .card p{
-      line-height: 1.6;
-      margin-bottom: 0;
+    .img-caption{
+      text-align:center;
+      color:#8B7E74;
+      font-size:14px;
+      margin-top:8px;
     }
 
-    footer{
-      text-align: center;
-      margin-top: 40px;
-      font-size: 13px;
-      color: rgba(74,74,74,0.7);
+    /* Kartta */
+    iframe.map{
+      width: 100%;
+      max-width: 100%;
+      height: 400px;
+      border: 0;
+      border-radius: 8px;
+      display:block;
+      margin: 16px 0;
     }
 
-    @media (max-width: 520px){
-      nav a{
-        padding: 10px 14px;
-      }
+    /* ===== LOMAKE ===== */
+    form{ margin-top: 20px; }
+
+    .field{
+      margin-bottom: 16px;
+    }
+
+    label{
+      display:block;
+      font-size:16px;
+      color:#4A4A4A;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"], textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      box-sizing:border-box;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    textarea{
+      resize:vertical;
+      min-height: 110px;
+    }
+
+    .radio-group{
+      display:flex;
+      flex-direction: column;   /* allekkain */
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    /* Tämä tekee: ( ) Teksti samalla rivillä */
+    .radio-option{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      color:#4A4A4A;
+      font-size: 16px;
+    }
+
+    .radio-option input{
+      width: 18px;
+      height: 18px;
+      margin: 0;
+    }
+
+    button{
+      background-color:#8B7E74;
+      color:white;
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size: 16px;
+    }
+
+    button:hover{
+      background-color:#7A6C60;
+    }
+
+    /* Responsiivisuus */
+    @media (max-width: 768px){
+      p{ font-size: 15px; }
+      h2{ font-size: 24px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
 
-    <header class="hero">
-      <div class="hero-banner">
-        <img src="banneri.png" alt="Satu & Ville – 1.8.2026">
-      </div>
+  <!-- VIDEO (näytetään ensin) -->
+  <div class="video-container">
+    <video id="intro-video" autoplay muted playsinline preload="auto">
+      <source src="Video.mp4" type="video/mp4" />
+      Videon toisto ei ole tuettu.
+    </video>
 
-      <nav>
-        <a class="etusivu" href="index.html">Etusivu</a>
-        <a class="haapaikka" href="haapaikka.html">Hääpaikka</a>
-        <a class="paikalle" href="miten-paassen-paikalle.html">Miten pääsen paikalle</a>
-        <a class="majoitus" href="majoittuminen.html">Majoittuminen</a>
-        <a class="ilmo" href="ilmoittautuminen.html">Ilmoittautuminen</a>
-        <a class="muistamiset" href="muistamiset.html">Muistamiset</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="card">
-        <h2>Tervetuloa</h2>
-        <p>
-          Me mennään naimisiin 🤍  
-          Olemme iloisia saadessamme kutsua teidät mukaan juhlistamaan
-          elämämme yhtä tärkeimmistä päivistä.  
-          Tältä sivulta löydät kaikki häihin liittyvät tärkeät tiedot.
-          VAIHTUKO KUVA?!?!?
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      Satu & Ville • 1.8.2026
-    </footer>
-
+    <!-- BANNERI (näytetään videon jälkeen) -->
+    <div class="banner-image" id="banner">
+      <img src="bannerikielet.png" alt="Hääbanneri" />
+    </div>
   </div>
+
+  <script>
+    // Video pyörii kerran ja piilotetaan sen jälkeen -> banneri näkyviin
+    const video = document.getElementById('intro-video');
+    const banner = document.getElementById('banner');
+
+    video.addEventListener('ended', () => {
+      video.style.display = 'none';
+      banner.style.display = 'block';
+
+      // pienennetään video-container bannerin korkeuteen (ettei jää tyhjää 100vh-tilaa)
+      const container = document.querySelector('.video-container');
+      container.style.height = 'auto';
+    });
+  </script>
+
 </body>
 </html>
