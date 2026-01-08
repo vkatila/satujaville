@@ -5,111 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Satu & Ville – Language / Kieli</title>
 
+  <!-- Elegant fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
   <style>
+    :root{
+      --bg: rgba(247, 242, 241, 1);
+      --text: #4A4A4A;
+      --muted: rgba(74,74,74,0.7);
+      --line: rgba(74,74,74,0.35);
+    }
+
     body{
       margin:0;
-      font-family: system-ui, sans-serif;
+      font-family: "Cormorant Garamond", serif;
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      background-color: rgba(247, 242, 241, 1);
+      background-color: var(--bg);
       overflow:hidden;
+      color: var(--text);
     }
 
-    /* ===== TAUSTAKUVA ===== */
+    /* ===== BACKGROUND IMAGE ===== */
     .bg{
       position: fixed;
       inset: 0;
       background:
         url("bannerikielet.png") center top / contain no-repeat,
-        rgba(247, 242, 241, 1);
+        var(--bg);
       z-index: -2;
     }
 
-    /* Kevyt kontrasti nappeja varten */
+    /* Subtle soft overlay so the text reads well */
     .overlay{
       position: fixed;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(247,242,241,0.0),
-        rgba(247,242,241,0.4)
-      );
+      background: radial-gradient(circle at center, rgba(247,242,241,0.15), rgba(247,242,241,0.55));
       z-index: -1;
     }
 
-    /* ===== KIELIVALINTA ===== */
-    .card{
-      margin-top: 180px; /* siirtää napit pois kukista */
-      width: min(420px, calc(100% - 40px));
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(230,224,218,0.9);
-      border-radius: 20px;
-      padding: 22px;
+    /* ===== LANGUAGE SELECT (TEXT ONLY) ===== */
+    .lang{
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-top: 220px; /* moves selector away from flowers / title */
+      width: min(520px, calc(100% - 32px));
     }
 
-    .title{
-      margin: 0 0 14px 0;
+    .prompt{
       font-size: 18px;
-      color: #4A4A4A;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin: 0 0 18px 0;
     }
 
-    .btns{
-      display:grid;
-      gap:12px;
+    /* Script font that matches the banner vibe */
+    .choices{
+      font-family: "Great Vibes", cursive;
+      font-size: 54px;
+      line-height: 1.05;
+      display: grid;
+      gap: 10px;
+      margin: 0;
     }
 
-    .btn{
-      display:block;
-      padding:14px 16px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:700;
-      color:#4A4A4A;
-      border:1px solid rgba(139,126,116,0.35);
-      background: rgba(247,242,241,0.95);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    .choice{
+      display: inline-block;
+      color: var(--text);
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 12px;
+      transition: transform 140ms ease, opacity 140ms ease;
     }
 
-    .btn:hover{
+    .choice:hover{
       transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      opacity: 0.85;
+    }
+
+    /* elegant thin divider line */
+    .divider{
+      width: 180px;
+      height: 1px;
+      margin: 10px auto 6px;
+      background: var(--line);
     }
 
     .hint{
-      margin-top:12px;
-      font-size:13px;
-      color: rgba(74,74,74,0.75);
+      margin: 14px 0 0 0;
+      font-size: 16px;
+      color: var(--muted);
+      letter-spacing: 0.4px;
     }
 
-    /* Mobiilisäätö */
+    /* Mobile tuning */
     @media (max-width: 480px){
-      .card{
-        margin-top: 140px;
-      }
+      .lang{ margin-top: 170px; }
+      .choices{ font-size: 44px; }
+      .prompt{ font-size: 16px; }
     }
   </style>
 </head>
 
 <body>
-
   <div class="bg" aria-hidden="true"></div>
   <div class="overlay" aria-hidden="true"></div>
 
-  <main class="card">
-    <p class="title">Valitse kieli / Choose a language</p>
+  <main class="lang" aria-label="Language selection">
+    <p class="prompt">Valitse kieli / Choose a language</p>
 
-    <div class="btns">
-      <a class="btn" href="FIN.html">Suomeksi</a>
-      <a class="btn" href="ENG.html">In English</a>
+    <div class="choices">
+      <a class="choice" href="FIN.html">Suomeksi</a>
+      <div class="divider" aria-hidden="true"></div>
+      <a class="choice" href="ENG.html">In English</a>
     </div>
 
-    <p class="hint">Satu & Ville · 25.7.2026</p>
+    <p class="hint">Satu &amp; Ville · 25.7.2026</p>
   </main>
-
 </body>
 </html>
