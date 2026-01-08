@@ -33,6 +33,18 @@
       display: block;
     }
 
+    /* Bannerin tyylit */
+    .banner-image {
+      display: none;
+      position: relative;
+      width: 100%;
+      height: auto; /* Täyttää leveys ja säilyttää mittasuhteet */
+      background-image: url('banneri.jpg');
+      background-size: contain;
+      background-position: center;
+      transition: opacity 1s ease-in-out;
+    }
+
     /* Videon tyylit */
     .video-container {
       position: relative;
@@ -49,20 +61,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    /* Bannerikuva, joka näkyy videon jälkeen */
-    .banner-image {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto; /* Täyttää vain leveys ja säilyttää mittasuhteet */
-      background-image: url('banneri.jpg');
-      background-size: contain;
-      background-position: center;
-      transition: opacity 1s ease-in-out;
     }
 
     /* Sisältötyylit */
@@ -159,15 +157,15 @@
       border-radius: 8px;
     }
 
-    /* Osallistumisradiot vierekkäin */
+    /* Osallistumisradiot päällekkäin */
     .radio-group {
       margin-bottom: 20px;
     }
 
     .radio-group label {
-      display: inline-block; /* Tekstit ja napit samalla rivillä */
+      display: block;  /* Tekstit ja napit tulevat päällekkäin */
       font-size: 16px;
-      margin-right: 20px;
+      margin-bottom: 10px;
     }
 
   </style>
@@ -242,10 +240,12 @@
         <div class="radio-group">
           <label for="attendance">Osallistuminen (pakollinen)</label>
           <label>
-            <input type="radio" id="attending" name="attendance" value="Osallistun" required> Osallistun
+            <input type="radio" id="attending" name="attendance" value="Osallistun" required>
+            Osallistun
           </label>
           <label>
-            <input type="radio" id="not-attending" name="attendance" value="Ei osallistu" required> Valitettavasti en pääse osallistumaan
+            <input type="radio" id="not-attending" name="attendance" value="Ei osallistu" required>
+            Valitettavasti en pääse osallistumaan
           </label>
         </div>
 
