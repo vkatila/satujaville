@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Satu & Ville – 1.8.2026</title>
+
   <style>
-    body {
-      margin: 0;
+    body{
+      margin:0;
       font-family: system-ui, sans-serif;
-      background-color: rgba(247, 242, 241, 1); /* Taustaväri */
-      overflow-x: hidden; /* Estää vaakasivun vierityksen */
+      background-color: rgba(247, 242, 241, 1);
+      overflow-x:hidden;
     }
 
-    /* Videon tyylit */
-    .video-container {
+    /* ===== VIDEO + BANNERI ===== */
+    .video-container{
       position: relative;
       width: 100%;
-      height: 100vh; /* Täyttää koko näytön korkeuden */
+      height: 100vh;           /* video täyttää aluksi ruudun */
       overflow: hidden;
       display: block;
     }
 
-    video {
+    video{
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    /* Bannerin tyylit */
-    .banner-image {
-      display: none;
-      position: relative;
-      width: 100%;
-      height: auto; /* Täyttää vain leveys ja säilyttää mittasuhteet */
-    }
-
-    .banner-image img {
-      width: 100%;
-      height: auto; /* Säilyttää mittasuhteet */
       display: block;
     }
 
-    /* Sisältötyylit */
-    .container {
+    .banner-image{
+      display: none;           /* näytetään videon jälkeen */
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-image img{
+      width: 100%;
+      height: auto;            /* säilyttää mittasuhteet */
+      display: block;
+    }
+
+    /* ===== SISÄLTÖ ===== */
+    .container{
       width: 100%;
       padding: 20px;
       box-sizing: border-box;
@@ -53,72 +53,247 @@
       margin: 0 auto;
     }
 
-    h1, h2, h3 {
-      color: #4A4A4A;
+    h1,h2,h3{ color:#4A4A4A; }
+    p{ font-size:16px; color:#4A4A4A; line-height:1.6; }
+
+    img.content-img{
+      width:100%;
+      height:auto;
+      border-radius:8px;
+      margin-top:20px;
+      display:block;
     }
 
-    p {
-      font-size: 16px;
-      color: #4A4A4A;
-      line-height: 1.6;
+    .img-caption{
+      text-align:center;
+      color:#8B7E74;
+      font-size:14px;
+      margin-top:8px;
     }
 
-    img {
+    /* Kartta */
+    iframe.map{
       width: 100%;
-      height: auto;
+      max-width: 100%;
+      height: 400px;
+      border: 0;
       border-radius: 8px;
-      margin-top: 20px;
+      display:block;
+      margin: 16px 0;
     }
 
-    .img-caption {
-      text-align: center;
-      color: #8B7E74;
-      font-size: 14px;
-      margin-top: 10px;
+    /* ===== LOMAKE ===== */
+    form{ margin-top: 20px; }
+
+    .field{
+      margin-bottom: 16px;
     }
 
+    label{
+      display:block;
+      font-size:16px;
+      color:#4A4A4A;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"], textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid #ddd;
+      border-radius:8px;
+      box-sizing:border-box;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    textarea{
+      resize:vertical;
+      min-height: 110px;
+    }
+
+    .radio-group{
+      display:flex;
+      flex-direction: column;   /* allekkain */
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    /* Tämä tekee: ( ) Teksti samalla rivillä */
+    .radio-option{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      color:#4A4A4A;
+      font-size: 16px;
+    }
+
+    .radio-option input{
+      width: 18px;
+      height: 18px;
+      margin: 0;
+    }
+
+    button{
+      background-color:#8B7E74;
+      color:white;
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size: 16px;
+    }
+
+    button:hover{
+      background-color:#7A6C60;
+    }
+
+    /* Responsiivisuus */
+    @media (max-width: 768px){
+      p{ font-size: 15px; }
+      h2{ font-size: 24px; }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- Video -->
+  <!-- VIDEO (näytetään ensin) -->
   <div class="video-container">
     <video id="intro-video" autoplay muted playsinline preload="auto">
-      <source src="Video.mp4" type="video/mp4">
+      <source src="Video.mp4" type="video/mp4" />
       Videon toisto ei ole tuettu.
     </video>
+
+    <!-- BANNERI (näytetään videon jälkeen) -->
     <div class="banner-image" id="banner">
-      <!-- Bannerikuva -->
-      <img src="banneri.jpg" alt="Hääbanneri">
+      <img src="banneri.jpg" alt="Hääbanneri" />
     </div>
   </div>
 
-  <!-- Sisältö -->
+  <!-- SISÄLTÖ -->
   <div class="container">
     <section class="content">
-      <p>Olemme iloisia saadessamme kutsua teidät mukaan juhlimaan meidän päivää. Tältä sivulta löydät kaikki häihin liittyvät tärkeät tiedot – hääpaikasta, saapumisesta ja majoittumisesta aina ilmoittautumiseen ja muistamisiin.</p>
+
+      <p>
+        Olemma ilosia saaessamme kuttua teät mukhaan juhlihmaan meän päivää.
+        Tältä sivulta löyät kaikki häihin liittyvät tärkät tiot – hääpaikasta,
+        saapumisesta ja majottumisesta aina ilmoittautumisheen ja muistamishiin.
+      </p>
 
       <h2>Aika ja Paikka</h2>
-      <p>25. heinäkuuta 2026</p>
+      <p>25 heinäkuuta 2026</p>
       <p><strong>Vihkiminen:</strong> Mataringin Kirkko klo: 15:00 (Suomen aikaa)</p>
       <p><strong>Hääjuhla:</strong> Lapland View Lodge</p>
+
+      <h3>Mataringin kirkko</h3>
+      <img class="content-img" src="kirkko.jpg" alt="Mataringin kirkko">
+      <p>
+        Matarengin kirkko (ruots. Övertorneå kyrka) on kirkkorakennus Ylitornion kunnassa
+        Norrbottenin läänissä Ruotsissa. Kunnan keskustaajamassa oleva Övertorneån seurakunnan
+        pääkirkko on rakennettu vuosina 1735–1737. Erillinen kellotapuli on valmistunut vuonna 1763.
+        Kirkko on Pohjois-Ruotsin parhaiten säilyneitä 1700-luvun kirkkoja ja siellä on Ruotsin
+        vanhimmat edelleen käytössä olevat urut. - Wikipedia -
+      </p>
+
+      <h3>Lapland View Lodge</h3>
+      <img class="content-img" src="lodge.jpg" alt="Lapland View Lodge">
+      <p>
+        Lapland View Lodge sijaitsee Luppio-vuorella Övertorneån vieressä. Luonnon kanssa harmoniassa
+        rakennettu maisemahotelli oli valmis vastaanottamaan vieraita joulukuussa 2021 ja on nyt avoinna
+        ympäri vuoden. Kahdessa päärakennuksessa, joiden yhteydessä on terassi, sijaitsevat vastaanotto,
+        ravintola, baari ja viihtyisä takkahuone. Ravintolassamme nautitte paikallisesta ruoasta ja
+        tarjoilemme aterioita, jotka on valmistettu Lapin paikallisista raaka-aineista. Rakennuksissa ja
+        kylpyläalueella sekä 40 hotellimökissä on suuret ikkunat, joista voit nauttia henkeäsalpaavista
+        näkymistä Tornionjoen laakson ja laajan ympäristön yli – Lapland View Lodge -
+      </p>
+
+      <h2>Miten pääsen paikalle?</h2>
+      <p>Mataringin kirkon löydät osoitteesta Matarengivägen 31, 957 31 Övertorneå, Sweden</p>
+      <p>Lapland View Lodgen osoitteesta: Luppio 202, 957 91 Övertorneå, Sweden.</p>
+
+      <!-- My Maps -upotus (sinun mid) -->
+      <iframe
+        class="map"
+        src="https://www.google.com/maps/d/embed?mid=1yU7i12njITDWcEyxvYRuPLUAWe_k_lQ&ehbc=2E312F&noprof=1">
+      </iframe>
+
+      <p>Voit myös seurata alla olevan mukaisia tienviittoja ylitettyäsi Aavasaksan sillan Ruotsin puolelle.</p>
+
+      <img class="content-img" src="viitta1.jpg" alt="Reitti kirkolle">
+      <div class="img-caption">Reitti kirkolle.</div>
+
+      <img class="content-img" src="viitta2.jpg" alt="Reitti juhlapaikalle">
+      <div class="img-caption">Reitti juhlapaikalle.</div>
+
+      <h2>Majoittuminen</h2>
+      <p>Juhlapaikan läheisyydessä on useita majoitusvaihtoehtoja, tässä hääparin suositukset.</p>
+
+      <h3>Lapland View Lodge</h3>
+      <p>Lapland View Lodge toimii häiden juhlapaikkana ja hääpari yöpyy täällä.</p>
+      <p>Lapland View Lodge tarjoaa tasokasta majoitusta suurin lasi-ikkunoin varustetuissa mökeissä. Lisähinnasta käytössä Spa-alue ja sauna upeilla näkymillä.</p>
+      <p>Jos päätät majoittua täällä, allaolevat hinnat ovat voimassa kun käytät varatessasi koodia <strong>MEÄNHÄÄT</strong></p>
+      <p>Standard Cabin (maks 2 hlö): ??? SEK/yö</p>
+      <p>Premium Cabin (maks 2 hlö): ??? SEK/yö</p>
+      <p>Family Cabin (maks 4 hlö): ??? SEK/yö</p>
+      <p>Family Premium Cabin (maks 4 hlö): ??? SEK/yö</p>
+      <p>Lisätietoja varten, <a href="https://www.explorethenorth.se/our-lodges/lapland-view-lodge" target="_blank">klikkaa tästä</a> ja tutustu tarkemmin.</p>
+
+      <h3>Matarengi Lodge</h3>
+      <p>Matarengi Lodge tarjoaa tasokasta hotellimajoitusta Matarengin keskustassa n. 10km juhlapaikasta. Hotellissa on Spa-alue ja sauna. Tänne pääset juhlpaikalta kätevästi esimerkiksi taksilla.</p>
+      <p>Jos päätät majoittua täällä, allaolevat hinnat ovat voimassa kun käytät varatessasi koodia <strong>MEÄNHÄÄT</strong></p>
+      <p>Double Room (maks 2 hlö): ??? SEK/yö</p>
+      <p>Double Room with balcony (maks 2 hlö): ??? SEK/yö</p>
+      <p>Family Room (maks 4 hlö): ??? SEK/yö</p>
+      <p>Lisätietoja varten, <a href="https://www.explorethenorth.se/our-lodges/matarengi-lodge" target="_blank">klikkaa tästä</a> ja tutustu tarkemmin.</p>
+
+      <h2>Ilmoittautuminen</h2>
+      <form>
+        <div class="field">
+          <label for="name">Nimi (pakollinen)</label>
+          <input type="text" id="name" name="name" required placeholder="Etunimi Sukunimi" />
+        </div>
+
+        <div class="field">
+          <label>Osallistuminen (pakollinen)</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="attendance" value="Osallistun" required />
+              Osallistun
+            </label>
+
+            <label class="radio-option">
+              <input type="radio" name="attendance" value="Valitettavasti en pääse osallistumaan" required />
+              Valitettavasti en pääse osallistumaan
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Lisätiedot (esim. ruoka-allergiat, majoittuminen yms.)</label>
+          <textarea id="message" name="message" placeholder="Kirjoita tähän"></textarea>
+        </div>
+
+        <button type="submit">Lähetä ilmoittautuminen</button>
+      </form>
+
+      <h2>Muistamiset</h2>
+      <p>Ei lahjoja, vaan RAHAA!!!</p>
+
     </section>
   </div>
 
   <script>
-    // Video pyörii kaksi kertaa ja piilotetaan sen jälkeen
-    let video = document.getElementById('intro-video');
-    let banner = document.getElementById('banner');
-    let playCount = 0;
+    // Video pyörii kerran ja piilotetaan sen jälkeen -> banneri näkyviin
+    const video = document.getElementById('intro-video');
+    const banner = document.getElementById('banner');
 
     video.addEventListener('ended', () => {
-      playCount++;
-      if (playCount >= 2) {
-        video.style.display = 'none'; // Piilota video
-        banner.style.display = 'block'; // Näytä bannerikuva
-      } else {
-        video.play(); // Toista video uudestaan
-      }
+      video.style.display = 'none';
+      banner.style.display = 'block';
+
+      // pienennetään video-container bannerin korkeuteen (ettei jää tyhjää 100vh-tilaa)
+      const container = document.querySelector('.video-container');
+      container.style.height = 'auto';
     });
   </script>
 
