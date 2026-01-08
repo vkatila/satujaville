@@ -8,49 +8,183 @@
     body {
       margin: 0;
       font-family: system-ui, sans-serif;
-      background-color: #F4EFEA;
-      overflow-x: hidden; /* Estää vaakasivun vierityksen */
+      background-color: rgba(247, 242, 241, 1); /* Taustaväri */
+      overflow-x: hidden;
     }
 
-    /* Videon tyylit */
-    .video-container {
-      position: relative;
+    /* Yleiset tyylit */
+    .container {
       width: 100%;
-      height: 100vh; /* Täyttää koko näytön korkeuden */
-      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Pitää videon suhteet oikein ja täyttää koko tilan */
+    /* Tekstityylit */
+    h1, h2 {
+      color: #4A4A4A;
     }
-    
+
+    h2 {
+      margin-top: 30px;
+      font-size: 28px;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #8B7E74; /* Väliotsikot */
+    }
+
+    p {
+      font-size: 16px;
+      color: #4A4A4A;
+      line-height: 1.6;
+    }
+
+    /* Kuva tyylit */
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .img-caption {
+      text-align: center;
+      color: #8B7E74;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    /* Navigaation ja linkkien tyylit */
+    nav a {
+      color: #4A4A4A;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Lomake ja tekstikentät */
+    form {
+      margin-top: 30px;
+    }
+
+    label {
+      font-size: 16px;
+      color: #4A4A4A;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      background-color: #8B7E74;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #7A6C60;
+    }
+
     /* Responsiivisuus mobiililaitteille */
     @media (max-width: 768px) {
-      .content {
-        font-size: 18px;
+      h2 {
+        font-size: 24px;
       }
 
-      nav a {
+      .content {
         font-size: 14px;
-        padding: 10px 15px;
+      }
+
+      nav {
+        text-align: center;
       }
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Video -->
-  <div class="video-container">
-    <video autoplay muted loop playsinline preload="auto">
-      <source src="Video.mp4" type="video/mp4">
-      Videon toisto ei ole tuettu.
-    </video>
+  <div class="container">
+    <!-- Teksti ensimmäiseksi -->
+    <section class="content">
+      <p>Olemme iloisia saadessamme kutsua teidät mukaan juhlimaan meidän päivää. Tältä sivulta löydät kaikki häihin liittyvät tärkeät tiedot – hääpaikasta, saapumisesta ja majoittumisesta aina ilmoittautumiseen ja muistamisiin.</p>
+
+      <!-- Pääotsikko Aika ja Paikka -->
+      <h2>Aika ja Paikka</h2>
+      <p>25. heinäkuuta 2026</p>
+      <p><strong>Vihkiminen:</strong> Mataringin Kirkko klo: 15:00 (Suomen aikaa)</p>
+      <p><strong>Hääjuhla:</strong> Lapland View Lodge</p>
+
+      <!-- Väliotsikko Mataringin kirkko -->
+      <h3>Mataringin kirkko</h3>
+      <img src="kirkko.jpg" alt="Mataringin kirkko">
+      <p>Matarengin kirkko (ruots. Övertorneå kyrka) on kirkkorakennus Ylitornion kunnassa Norrbottenin läänissä Ruotsissa. Kunnan keskustaajamassa oleva Övertorneån seurakunnan pääkirkko on rakennettu vuosina 1735–1737. Erillinen kellotapuli on valmistunut vuonna 1763. Kirkko on Pohjois-Ruotsin parhaiten säilyneitä 1700-luvun kirkkoja ja siellä on Ruotsin vanhimmat edelleen käytössä olevat urut. - Wikipedia -</p>
+
+      <!-- Väliotsikko Lapland View Lodge -->
+      <h3>Lapland View Lodge</h3>
+      <img src="lodge.jpg" alt="Lapland View Lodge">
+      <p>Lapland View Lodge sijaitsee Luppio-vuorella Övertorneån vieressä. Luonnon kanssa harmoniassa rakennettu maisemahotelli oli valmis vastaanottamaan vieraita joulukuussa 2021 ja on nyt avoinna ympäri vuoden. Kahdessa päärakennuksessa, joiden yhteydessä on terassi, sijaitsevat vastaanotto, ravintola, baari ja viihtyisä takkahuone. Ravintolassamme nautitte paikallisesta ruoasta ja tarjoilemme aterioita, jotka on valmistettu Lapin paikallisista raaka-aineista. Rakennuksissa ja kylpyläalueella sekä 40 hotellimökissä on suuret ikkunat, joista voit nauttia henkeäsalpaavista näkymistä Tornionjoen laakson ja laajan ympäristön yli – Lapland View Lodge -</p>
+
+      <!-- Pääotsikko Miten pääsen paikalle? -->
+      <h2>Miten pääsen paikalle?</h2>
+      <p>Mataringin kirkon löydät osoitteesta Matarengivägen 31, 957 31 Övertorneå, Sweden ja Lapland View Lodgen osoitteesta: Luppio 202, 957 91 Övertorneå, Sweden.</p>
+
+      <!-- Google Maps upotus -->
+      <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+      <p>Voit myös seurata alla olevia tienviittoja ylitettyäsi Aavasaksan sillan Ruotsin puolelle.</p>
+
+      <!-- Reittikuvat -->
+      <img src="viitta1.jpg" alt="Reitti kirkolle">
+      <div class="img-caption">Reitti kirkolle</div>
+      <img src="viitta2.jpg" alt="Reitti juhlapaikalle">
+      <div class="img-caption">Reitti juhlapaikalle</div>
+
+      <!-- Pääotsikko Majoittuminen -->
+      <h2>Majoittuminen</h2>
+      <h3>Lapland View Lodge</h3>
+      <h3>Matarengi Lodge</h3>
+
+      <!-- Pääotsikko Ilmoittautuminen -->
+      <h2>Ilmoittautuminen</h2>
+      <form>
+        <label for="name">Nimi</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="attendance">Osallistuminen</label>
+        <input type="text" id="attendance" name="attendance" required>
+        
+        <label for="message">Lisätiedot</label>
+        <textarea id="message" name="message"></textarea>
+        
+        <button type="submit">Lähetä ilmoittautuminen</button>
+      </form>
+
+      <!-- Pääotsikko Muistamiset -->
+      <h2>Muistamiset</h2>
+      <p>Ei lahjoja, vaan RAHAA!!!</p>
+    </section>
   </div>
 
 </body>
