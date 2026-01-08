@@ -129,6 +129,15 @@
         text-align: center;
       }
     }
+
+    /* Kartan tyylit */
+    iframe {
+      width: 100%;
+      height: 400px; /* Säädetty korkeuden sopivaksi */
+      border: 0;
+      border-radius: 8px;
+    }
+
   </style>
 </head>
 <body>
@@ -164,7 +173,8 @@
       <p>Mataringin kirkon löydät osoitteesta: Matarengivägen 31, 957 31 Övertorneå, Sweden</p>
       <p>Lapland View Lodgen osoitteesta: Luppio 202, 957 91 Övertorneå, Sweden.</p>
 
-      <iframe src="https://www.google.com/maps/d/embed?mid=1yU7i12njITDWcEyxvYRuPLUAWe_k_lQ&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+      <!-- Google Maps upotus -->
+      <iframe src="https://www.google.com/maps/d/embed?mid=1yU7i12njITDWcEyxvYRuPLUAWe_k_lQ&ehbc=2E312F&noprof=1" width="100%" height="450"></iframe>
 
       <p>Voit myös seurata alla olevia tienviittoja ylitettyäsi Aavasaksan sillan Ruotsin puolelle.</p>
 
@@ -176,7 +186,6 @@
       <h2>Majoittuminen</h2>
       <p>Juhlapaikan läheisyydessä on useita majoitusvaihtoehtoja, tässä hääparin suositukset.</p>
       <h3>Lapland View Lodge</h3>
-      <p>Lapland View Lodge toimii häiden juhlapaikkana ja hääpari yöpyy täällä</p>
       <p>Lapland View Lodge tarjoaa tasokasta majoitusta suurin lasi-ikkunoin varustetuissa mökeissä. Lisähinnasta käytössä Spa-alue ja sauna upeilla näkymillä.</p>
       <p>Jos päätät majoittua täällä, allaolevat hinnat ovat voimassa kun käytät varatessasi koodia <strong>MEÄNHÄÄT</strong></p>
       <p>Standard Cabin (maks 2 hlö): ??? SEK/yö</p>
@@ -194,28 +203,25 @@
 
       <h2>Ilmoittautuminen</h2>
       <form>
-        <!-- Nimi -->
-          <label for="name">Nimi (pakollinen)</label>
-          <input type="text" id="name" name="name" required placeholder="Etunimi Sukunimi">
+        <!-- Lomakekentät -->
+        <label for="name">Nimi (pakollinen)</label>
+        <input type="text" id="name" name="name" required placeholder="Etunimi Sukunimi">
 
-        <!-- Osallistuminen -->
-          <div class="radio-group">
-            <label for="attendance">Osallistuminen (pakollinen)</label>
-            <label>
-              <input type="radio" id="attending" name="attendance" value="Osallistun" required>
-              Osallistun
-            </label>
-            <label>
-              <input type="radio" id="not-attending" name="attendance" value="Ei osallistu" required>
-              Valitettavasti en pääse osallistumaan
-            </label>
-          </div>
+        <div class="radio-group">
+          <label for="attendance">Osallistuminen (pakollinen)</label>
+          <label>
+            <input type="radio" id="attending" name="attendance" value="Osallistun" required>
+            Osallistun
+          </label>
+          <label>
+            <input type="radio" id="not-attending" name="attendance" value="Ei osallistu" required>
+            Valitettavasti en pääse osallistumaan
+          </label>
+        </div>
 
-          <!-- Lisätiedot -->
-          <label for="message">Lisätiedot (esim. ruoka-allergiat, majoittuminen yms.)</label>
-          <textarea id="message" name="message" placeholder="Kirjoita tähän"></textarea>
+        <label for="message">Lisätiedot (esim. ruoka-allergiat, majoittuminen yms.)</label>
+        <textarea id="message" name="message" placeholder="Kirjoita tähän"></textarea>
 
-          <!-- Lähetä -->
         <button type="submit">Lähetä ilmoittautuminen</button>
       </form>
 
