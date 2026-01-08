@@ -18,6 +18,7 @@
       width: 100%;
       height: 100vh; /* Täyttää koko näytön korkeuden */
       overflow: hidden;
+      display: block;
     }
 
     video {
@@ -26,10 +27,24 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Pitää videon suhteet oikein ja täyttää koko tilan */
+      object-fit: cover;
     }
 
-    /* Yleiset tyylit */
+    /* Bannerikuva, joka näkyy videon jälkeen */
+    .banner-image {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('banneri.jpg');
+      background-size: cover;
+      background-position: center;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* Sisältötyylit */
     .container {
       width: 100%;
       padding: 20px;
@@ -38,20 +53,8 @@
       margin: 0 auto;
     }
 
-    /* Tekstityylit */
-    h1, h2 {
+    h1, h2, h3 {
       color: #4A4A4A;
-    }
-
-    h2 {
-      margin-top: 30px;
-      font-size: 28px;
-    }
-
-    h3 {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #8B7E74; /* Väliotsikot */
     }
 
     p {
@@ -60,7 +63,6 @@
       line-height: 1.6;
     }
 
-    /* Kuva tyylit */
     img {
       width: 100%;
       height: auto;
@@ -73,17 +75,6 @@
       color: #8B7E74;
       font-size: 14px;
       margin-top: 10px;
-    }
-
-    /* Navigaation ja linkkien tyylit */
-    nav a {
-      color: #4A4A4A;
-      text-decoration: none;
-      margin: 0 15px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
     }
 
     /* Lomake ja tekstikentät */
@@ -144,54 +135,68 @@
 
   <!-- Video -->
   <div class="video-container">
-    <video autoplay muted loop playsinline preload="auto">
+    <video id="intro-video" autoplay muted playsinline preload="auto">
       <source src="Video.mp4" type="video/mp4">
       Videon toisto ei ole tuettu.
     </video>
+    <div class="banner-image" id="banner"></div>
   </div>
 
+  <!-- Sisältö -->
   <div class="container">
-    <!-- Teksti ensimmäiseksi -->
     <section class="content">
       <p>Olemme iloisia saadessamme kutsua teidät mukaan juhlimaan meidän päivää. Tältä sivulta löydät kaikki häihin liittyvät tärkeät tiedot – hääpaikasta, saapumisesta ja majoittumisesta aina ilmoittautumiseen ja muistamisiin.</p>
 
-      <!-- Pääotsikko Aika ja Paikka -->
       <h2>Aika ja Paikka</h2>
       <p>25. heinäkuuta 2026</p>
       <p><strong>Vihkiminen:</strong> Mataringin Kirkko klo: 15:00 (Suomen aikaa)</p>
       <p><strong>Hääjuhla:</strong> Lapland View Lodge</p>
 
-      <!-- Väliotsikko Mataringin kirkko -->
       <h3>Mataringin kirkko</h3>
       <img src="kirkko.jpg" alt="Mataringin kirkko">
       <p>Matarengin kirkko (ruots. Övertorneå kyrka) on kirkkorakennus Ylitornion kunnassa Norrbottenin läänissä Ruotsissa. Kunnan keskustaajamassa oleva Övertorneån seurakunnan pääkirkko on rakennettu vuosina 1735–1737. Erillinen kellotapuli on valmistunut vuonna 1763. Kirkko on Pohjois-Ruotsin parhaiten säilyneitä 1700-luvun kirkkoja ja siellä on Ruotsin vanhimmat edelleen käytössä olevat urut. - Wikipedia -</p>
 
-      <!-- Väliotsikko Lapland View Lodge -->
       <h3>Lapland View Lodge</h3>
       <img src="lodge.jpg" alt="Lapland View Lodge">
       <p>Lapland View Lodge sijaitsee Luppio-vuorella Övertorneån vieressä. Luonnon kanssa harmoniassa rakennettu maisemahotelli oli valmis vastaanottamaan vieraita joulukuussa 2021 ja on nyt avoinna ympäri vuoden. Kahdessa päärakennuksessa, joiden yhteydessä on terassi, sijaitsevat vastaanotto, ravintola, baari ja viihtyisä takkahuone. Ravintolassamme nautitte paikallisesta ruoasta ja tarjoilemme aterioita, jotka on valmistettu Lapin paikallisista raaka-aineista. Rakennuksissa ja kylpyläalueella sekä 40 hotellimökissä on suuret ikkunat, joista voit nauttia henkeäsalpaavista näkymistä Tornionjoen laakson ja laajan ympäristön yli – Lapland View Lodge -</p>
 
-      <!-- Pääotsikko Miten pääsen paikalle? -->
       <h2>Miten pääsen paikalle?</h2>
-      <p>Mataringin kirkon löydät osoitteesta Matarengivägen 31, 957 31 Övertorneå, Sweden ja Lapland View Lodgen osoitteesta: Luppio 202, 957 91 Övertorneå, Sweden.</p>
+      <br><br>
+      <p>Mataringin kirkon löydät osoitteesta: Matarengivägen 31, 957 31 Övertorneå, Sweden</p>
+      <p>ja Lapland View Lodgen osoitteesta: Luppio 202, 957 91 Övertorneå, Sweden.</p>
 
-      <!-- Google Maps upotus -->
-      <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1yU7i12njITDWcEyxvYRuPLUAWe_k_lQ&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
 
       <p>Voit myös seurata alla olevia tienviittoja ylitettyäsi Aavasaksan sillan Ruotsin puolelle.</p>
 
-      <!-- Reittikuvat -->
       <img src="viitta1.jpg" alt="Reitti kirkolle">
       <div class="img-caption">Reitti kirkolle</div>
       <img src="viitta2.jpg" alt="Reitti juhlapaikalle">
       <div class="img-caption">Reitti juhlapaikalle</div>
 
-      <!-- Pääotsikko Majoittuminen -->
       <h2>Majoittuminen</h2>
+      <br><br>
+      <p>Juhlapaikan läheisyydessä on useita majoitusvaihtoehtoja, tässä hääparin suositukset.</p>
+      <br><br>
       <h3>Lapland View Lodge</h3>
+      <p>Lapland View Lodge toimii häiden juhlapaikkana ja hääpari yöpyy täällä</p>
+      <p>Lapland View Lodge tarjoaa tasokasta majoitusta suurin lasi-ikkunoin varustetuissa mökeissä. Lisähinnasta käytössä Spa-alue ja sauna upeilla näkymillä.</p>
+      <p>Jos päätät majoittua täällä, allaolevat hinnat ovat voimassa kun käytät varatessasi koodia <strong>MEÄNHÄÄT</strong></p>
+      <br><br>
+      <p>Standard Cabin (maks 2 hlö): ??? SEK/yö</p>
+      <p>Premium Cabin (maks 2 hlö): ??? SEK/yö</p>
+      <p>Family Cabin (maks 4 hlö): ??? SEK/yö</p>
+      <p>Family Premium Cabin (maks 4 hlö): ??? SEK/yö</p>
+      <br><br>
       <h3>Matarengi Lodge</h3>
+      <br><br>
+      <p>Matarengi Lodge tarjoaa tasokasta hotellimajoitusta Matarengin keskustassa n. 10km juhlapaikasta. Hotellissa on Spa-alue ja sauna. Tänne pääset juhlpaikalta kätevästi esimerkiksi taksilla.</p>
+      <p>Jos päätät majoittua täällä, allaolevat hinnat ovat voimassa kun käytät varatessasi koodia <strong>MEÄNHÄÄT</strong></p>
+      <br><br>
+      <p>Double Room (maks 2 hlö): ??? SEK/yö</p>
+      <p>Double Room with balcony (maks 2 hlö): ??? SEK/yö</p>
+      <p>Family Room (maks 4 hlö): ??? SEK/yö</p>
 
-      <!-- Pääotsikko Ilmoittautuminen -->
       <h2>Ilmoittautuminen</h2>
       <form>
         <label for="name">Nimi</label>
@@ -206,11 +211,27 @@
         <button type="submit">Lähetä ilmoittautuminen</button>
       </form>
 
-      <!-- Pääotsikko Muistamiset -->
       <h2>Muistamiset</h2>
       <p>Ei lahjoja, vaan RAHAA!!!</p>
     </section>
   </div>
+
+  <script>
+    // Video pyörii kaksi kertaa ja piilotetaan sen jälkeen
+    let video = document.getElementById('intro-video');
+    let banner = document.getElementById('banner');
+    let playCount = 0;
+
+    video.addEventListener('ended', () => {
+      playCount++;
+      if (playCount >= 2) {
+        video.style.display = 'none'; // Piilota video
+        banner.style.display = 'block'; // Näytä bannerikuva
+      } else {
+        video.play(); // Toista video uudestaan
+      }
+    });
+  </script>
 
 </body>
 </html>
