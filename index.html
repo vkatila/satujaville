@@ -40,62 +40,85 @@
       z-index: -2;
     }
 
-    /* Subtle soft overlay so the text reads well */
+    /* Soft overlay for readability */
     .overlay{
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at center, rgba(247,242,241,0.15), rgba(247,242,241,0.55));
+      background: radial-gradient(
+        circle at center,
+        rgba(247,242,241,0.15),
+        rgba(247,242,241,0.55)
+      );
       z-index: -1;
     }
 
-    /* ===== LANGUAGE SELECT (TEXT ONLY) ===== */
+    /* ===== LANGUAGE SELECT ===== */
     .lang{
       text-align: center;
-      margin-top: 220px; /* moves selector away from flowers / title */
+      margin-top: 150px; /* moved UP */
       width: min(520px, calc(100% - 32px));
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn{
+      to{
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .prompt{
       font-size: 18px;
       letter-spacing: 0.6px;
       color: var(--muted);
-      margin: 0 0 18px 0;
+      margin: 0 0 22px 0;
     }
 
-    /* Script font that matches the banner vibe */
     .choices{
       font-family: "Great Vibes", cursive;
       font-size: 54px;
-      line-height: 1.05;
+      line-height: 1.15;
       display: grid;
-      gap: 10px;
+      gap: 14px;
       margin: 0;
     }
 
     .choice{
+      position: relative;
       display: inline-block;
       color: var(--text);
       text-decoration: none;
-      padding: 4px 10px;
-      border-radius: 12px;
-      transition: transform 140ms ease, opacity 140ms ease;
+      padding: 2px 8px;
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    .choice::after{
+      content:"";
+      position:absolute;
+      left: 10%;
+      right: 10%;
+      bottom: -6px;
+      height: 1px;
+      background: var(--line);
+      opacity: 0;
+      transform: scaleX(0.6);
+      transition: opacity 160ms ease, transform 160ms ease;
     }
 
     .choice:hover{
-      transform: translateY(-2px);
       opacity: 0.85;
+      transform: translateY(-2px);
     }
 
-    /* elegant thin divider line */
-    .divider{
-      width: 180px;
-      height: 1px;
-      margin: 10px auto 6px;
-      background: var(--line);
+    .choice:hover::after{
+      opacity: 1;
+      transform: scaleX(1);
     }
 
     .hint{
-      margin: 14px 0 0 0;
+      margin-top: 22px;
       font-size: 16px;
       color: var(--muted);
       letter-spacing: 0.4px;
@@ -103,7 +126,7 @@
 
     /* Mobile tuning */
     @media (max-width: 480px){
-      .lang{ margin-top: 170px; }
+      .lang{ margin-top: 120px; }
       .choices{ font-size: 44px; }
       .prompt{ font-size: 16px; }
     }
@@ -111,6 +134,7 @@
 </head>
 
 <body>
+
   <div class="bg" aria-hidden="true"></div>
   <div class="overlay" aria-hidden="true"></div>
 
@@ -119,11 +143,11 @@
 
     <div class="choices">
       <a class="choice" href="FIN.html">Suomeksi</a>
-      <div class="divider" aria-hidden="true"></div>
       <a class="choice" href="ENG.html">In English</a>
     </div>
 
     <p class="hint">Satu &amp; Ville · 25.7.2026</p>
   </main>
+
 </body>
 </html>
