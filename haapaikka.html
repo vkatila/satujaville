@@ -242,12 +242,10 @@
         <div class="radio-group">
           <label for="attendance">Osallistuminen (pakollinen)</label>
           <label>
-            <input type="radio" id="attending" name="attendance" value="Osallistun" required>
-            Osallistun
+            <input type="radio" id="attending" name="attendance" value="Osallistun" required> Osallistun
           </label>
           <label>
-            <input type="radio" id="not-attending" name="attendance" value="Ei osallistu" required>
-            Valitettavasti en pääse osallistumaan
+            <input type="radio" id="not-attending" name="attendance" value="Ei osallistu" required> Valitettavasti en pääse osallistumaan
           </label>
         </div>
 
@@ -263,14 +261,14 @@
   </div>
 
   <script>
-    // Video pyörii kaksi kertaa ja piilotetaan sen jälkeen
+    // Video pyörii kerran ja piilotetaan sen jälkeen
     let video = document.getElementById('intro-video');
     let banner = document.getElementById('banner');
     let playCount = 0;
 
     video.addEventListener('ended', () => {
       playCount++;
-      if (playCount >= 2) {
+      if (playCount >= 1) {
         video.style.display = 'none'; // Piilota video
         banner.style.display = 'block'; // Näytä bannerikuva
       } else {
