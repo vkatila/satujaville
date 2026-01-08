@@ -106,14 +106,14 @@
   </div>
 
   <script>
-    // Video pyörii kerran ja piilotetaan sen jälkeen
+    // Video pyörii kaksi kertaa ja piilotetaan sen jälkeen
     let video = document.getElementById('intro-video');
     let banner = document.getElementById('banner');
     let playCount = 0;
 
     video.addEventListener('ended', () => {
       playCount++;
-      if (playCount >= 1) {
+      if (playCount >= 2) {
         video.style.display = 'none'; // Piilota video
         banner.style.display = 'block'; // Näytä bannerikuva
       } else {
