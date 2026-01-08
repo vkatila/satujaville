@@ -17,9 +17,9 @@
     .video-container{
       position: relative;
       width: 100%;
-      height: 100vh;           /* video fills screen initially */
+      height: 100vh;
       overflow: hidden;
-      display: block;
+      background: rgba(247, 242, 241, 1); /* tausta jos jää “palkit” */
     }
 
     video{
@@ -27,8 +27,8 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
+      object-fit: contain; /* EI leikkaa */
+      object-position: center;
     }
 
     .banner-image{
