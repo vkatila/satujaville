@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travel tips: Rovaniemi & Oulu</title>
+  <meta name="description" content="Attractions, activities and accommodation ideas for guests staying longer around the wedding." />
+  <style>
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,.06);
+      --panel-strong: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.55);
+      --border: rgba(255,255,255,.14);
+      --accent: #7dd3fc;
+      --accent2: #a78bfa;
+      --ok: #34d399;
+      --warn: #fbbf24;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 24px;
+      --max: 1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(125,211,252,.25), transparent 60%),
+        radial-gradient(1000px 500px at 85% 0%, rgba(167,139,250,.20), transparent 55%),
+        radial-gradient(800px 400px at 50% 110%, rgba(52,211,153,.12), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 4px; }
+
+    .container{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(11,18,32,.70);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 12px 0;
+    }
+    .brand{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      font-weight: 700;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .brand-dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content:flex-end;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .chip:hover{ background: rgba(255,255,255,.08); }
+
+    /* Hero */
+    .hero{
+      padding: 34px 0 10px;
+    }
+    .hero-card{
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-inner{
+      padding: 26px 20px;
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 18px;
+    }
+    @media (max-width: 860px){
+      .hero-inner{ grid-template-columns: 1fr; }
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3.2vw, 40px);
+      line-height: 1.12;
+      letter-spacing: -.4px;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 12px;
+    }
+    .note{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .badge-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(125,211,252,.12);
+      border: 1px solid rgba(125,211,252,.25);
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+    }
+    .badge.alt{
+      background: rgba(167,139,250,.12);
+      border-color: rgba(167,139,250,.25);
+    }
+    .badge.ok{
+      background: rgba(52,211,153,.12);
+      border-color: rgba(52,211,153,.25);
+    }
+
+    /* Sections */
+    section{
+      padding: 22px 0;
+    }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    h2{
+      margin: 0;
+      font-size: clamp(20px, 2.2vw, 28px);
+      letter-spacing: -.2px;
+    }
+    .subhead{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Filters */
+    .filters{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+    .btn{
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      transition: .15s ease;
+      user-select: none;
+    }
+    .btn:hover{ background: rgba(255,255,255,.08); }
+    .btn[aria-pressed="true"]{
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.92);
+      border-color: rgba(255,255,255,.22);
+    }
+
+    /* Cards grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .card{
+      grid-column: span 6;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 2px 0 rgba(255,255,255,.02) inset;
+      overflow: hidden;
+      min-height: 100%;
+    }
+    @media (max-width: 900px){ .card{ grid-column: span 12; } }
+    .card-inner{
+      padding: 16px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .kicker{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+    }
+    .tag{
+      font-size: 12px;
+      color: var(--muted2);
+      padding: 4px 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      white-space: nowrap;
+    }
+    h3{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -.1px;
+    }
+    .desc{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .bullets{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .bullets li{ margin: 6px 0; }
+
+    .links{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .linkbtn{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+    }
+    .linkbtn:hover{ background: rgba(255,255,255,.08); }
+
+    .small{
+      color: var(--muted2);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    /* Footer / tips */
+    .tipbox{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+      padding: 14px 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer{
+      padding: 22px 0 40px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    /* Accessibility */
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="brand" href="#top" aria-label="Back to top">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span>Extra days guide</span>
+        </a>
+
+        <nav class="nav" aria-label="Page navigation">
+          <a class="chip" href="#rovaniemi">Rovaniemi</a>
+          <a class="chip" href="#oulu">Oulu</a>
+          <a class="chip" href="#practical">Practical tips</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero" id="top">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-inner">
+          <div>
+            <h1>Attractions, activities & accommodation</h1>
+            <p class="lead">
+              If you have a chance to stay a bit longer in the most beautiful and peaceful region of the world (yes, we said it!),
+              here are some ideas for your trip. We also include recommendations for Oulu: it’s relatively close to the wedding venue
+              (at least from a Lappish perspective) and it will be one of the European Capitals of Culture in 2026.
+            </p>
+
+            <div class="note" role="note">
+              <span aria-hidden="true">💡</span>
+              <div>
+                <strong>Quick heads-up:</strong> opening hours and seasonal availability can change a lot in the North.
+                If something looks perfect, click the official link and double-check dates before you go.
+              </div>
+            </div>
+
+            <div class="badge-row" aria-label="Highlights">
+              <span class="badge">🧑‍🎄 Santa vibes (even in summer)</span>
+              <span class="badge alt">🌲 Easy nature trips near town</span>
+              <span class="badge ok">🏖️ Seaside sunsets in Oulu</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="note">
+              <span aria-hidden="true">🗺️</span>
+              <div>
+                <strong>How to use this page:</strong>
+                <div class="small">
+                  Use the filters in each city to show only <em>Attractions</em>, <em>Nature & outdoors</em>, or <em>Accommodation</em>.
+                  Replace any text with your own picks (restaurants, day trips, etc.).
+                </div>
+              </div>
+            </div>
+
+            <div class="note" style="margin-top:12px;">
+              <span aria-hidden="true">🏔️</span>
+              <div>
+                <strong>Finnish mini-dictionary:</strong>
+                <div class="small">
+                  <strong>Tunturi</strong> = a rounded, treeless fell (an old “mountain” shaped by ice ages).<br />
+                  <strong>Laavu</strong> = a simple lean-to shelter / campfire spot you can use for a break outdoors.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /hero-inner -->
+      </div><!-- /hero-card -->
+    </div><!-- /container -->
+  </div><!-- /hero -->
+
+  <main>
+    <!-- ========================= ROVANIEMI ========================= -->
+    <section id="rovaniemi">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Rovaniemi</h2>
+            <p class="subhead">
+              Official hometown of Santa Claus — and the capital of Finnish Lapland. Summer can be a surprisingly great time to visit:
+              calmer vibe, easier booking, and long bright nights.
+            </p>
+          </div>
+        </div>
+
+        <div class="filters" role="toolbar" aria-label="Filter Rovaniemi cards">
+          <button class="btn" data-city="rovaniemi" data-filter="all" aria-pressed="true">Show all</button>
+          <button class="btn" data-city="rovaniemi" data-filter="attraction" aria-pressed="false">Attractions</button>
+          <button class="btn" data-city="rovaniemi" data-filter="nature" aria-pressed="false">Nature & outdoors</button>
+          <button class="btn" data-city="rovaniemi" data-filter="food" aria-pressed="false">Food & drink</button>
+          <button class="btn" data-city="rovaniemi" data-filter="stay" aria-pressed="false">Accommodation</button>
+        </div>
+
+        <div class="grid" data-city-grid="rovaniemi">
+          <!-- Christmas & Santa -->
+          <article class="card" data-type="attraction">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Attraction</span>
+                <span class="tag">Christmas & Santa</span>
+              </div>
+              <h3>Santa Claus Village</h3>
+              <p class="desc">
+                The classic “Arctic Circle” stop: meet Santa, cross the Arctic Circle line, and browse the village year-round.
+                Summer is usually much less crowded than peak winter.
+              </p>
+              <ul class="bullets">
+                <li>Santa Claus Office (meet Santa)</li>
+                <li>Santa Claus Main Post Office (send postcards with Arctic Circle postmark)</li>
+                <li>Shops, cafés, photo spots, and themed activities</li>
+              </ul>
+              <div class="links">
+                <a class="linkbtn" href="https://santaclausvillage.info/" target="_blank" rel="noopener">Official site</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Santa+Claus+Village+Rovaniemi" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+              <div class="small">Tip: If you want fewer queues, go early in the day.</div>
+            </div>
+          </article>
+
+          <article class="card" data-type="attraction">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Attraction</span>
+                <span class="tag">Christmas theme park</span>
+              </div>
+              <h3>SantaPark</h3>
+              <p class="desc">
+                An underground Christmas-themed park with shows, workshops, and Santa encounters.
+                Great if you want a “full-on Christmas” experience regardless of season.
+              </p>
+              <ul class="bullets">
+                <li>Elf School, shows, workshops</li>
+                <li>Santa’s Office & Post Office</li>
+                <li>Indoor fun if the weather turns</li>
+              </ul>
+              <div class="links">
+                <a class="linkbtn" href="https://santapark.fi/" target="_blank" rel="noopener">Official site</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=SantaPark+Rovaniemi" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Culture -->
+          <article class="card" data-type="attraction">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Attraction</span>
+                <span class="tag">Culture</span>
+              </div>
+              <h3>Arktikum (museum & science centre)</h3>
+              <p class="desc">
+                A strong “one stop” for learning about the Arctic, Lapland history, and northern nature — and it’s an easy visit in any weather.
+              </p>
+              <div class="links">
+                <a class="linkbtn" href="https://arktikum.fi/en/" target="_blank" rel="noopener">Official site</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Arktikum+Rovaniemi" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Nature -->
+          <article class="card" data-type="nature">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Nature & outdoors</span>
+                <span class="tag">Easy day trip</span>
+              </div>
+              <h3>Ounasvaara (trails & viewpoints)</h3>
+              <p class="desc">
+                The closest “fell” area to the city: forest trails, viewpoints, and picnic spots. A great low-effort nature fix near town.
+              </p>
+              <ul class="bullets">
+                <li>Short loops and longer trail options</li>
+                <li>Viewpoints and campfire places (laavut)</li>
+                <li>Perfect for an evening walk in the midnight sun season</li>
+              </ul>
+              <div class="links">
+                <a class="linkbtn" href="https://www.visitrovaniemi.fi/attraction/ounasvaara-nature-trail/" target="_blank" rel="noopener">Trail info</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Ounasvaara+Rovaniemi" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-type="nature">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Nature & outdoors</span>
+                <span class="tag">Family-friendly</span>
+              </div>
+              <h3>Ranua Wildlife Park (day trip)</h3>
+              <p class="desc">
+                A popular family day trip to see Arctic and northern animal species in forest surroundings.
+              </p>
+              <div class="links">
+                <a class="linkbtn" href="https://ranuaresort.com/en/wildlife-park/" target="_blank" rel="noopener">Official site</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Ranua+Wildlife+Park" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+              <div class="small">Note: It’s outside Rovaniemi—plan transport/time.</div>
+            </div>
+          </article>
+
+          <!-- Food -->
+          <article class="card" data-type="food">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Food & drink</span>
+                <span class="tag">Add your favourites</span>
+              </div>
+              <h3>Summer eating in Rovaniemi</h3>
+              <p class="desc">
+                Rovaniemi has a surprisingly good range of cafés and restaurants. Add your personal favourites here.
+              </p>
+              <ul class="bullets">
+                <li>Try local fish and berries when in season</li>
+                <li>Look for lunch deals (often great value)</li>
+                <li>Book ahead if you’re going as a group</li>
+              </ul>
+              <div class="small">Replace this card with your own restaurant list if you want.</div>
+            </div>
+          </article>
+
+          <!-- Accommodation -->
+          <article class="card" data-type="stay">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Accommodation</span>
+                <span class="tag">Santa area</span>
+              </div>
+              <h3>Santa Claus Holiday Village</h3>
+              <p class="desc">
+                Cottage-style accommodation right by Santa Claus Village — convenient if you want the “Arctic Circle” atmosphere.
+              </p>
+              <div class="links">
+                <a class="linkbtn" href="https://www.santaclausholidayvillage.fi/" target="_blank" rel="noopener">Official site</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Santa+Claus+Holiday+Village+Rovaniemi" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-type="stay">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Accommodation</span>
+                <span class="tag">Views</span>
+              </div>
+              <h3>Lapland Hotels Sky Ounasvaara</h3>
+              <p class="desc">
+                A scenic stay on Ounasvaara hill area—nice if you want peaceful surroundings and views.
+              </p>
+              <div class="links">
+                <a class="linkbtn" href="https://www.laplandhotels.com/fi/hotellit-ja-kohteet/rovaniemi/lapland-hotels-sky-ounasvaara" target="_blank" rel="noopener">Official site</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Lapland+Hotels+Sky+Ounasvaara" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-type="stay">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Accommodation</span>
+                <span class="tag">Budget-friendly</span>
+              </div>
+              <h3>Hostel Café Koti</h3>
+              <p class="desc">
+                Central hostel with private rooms + dorms—useful if you want a more affordable stay in town.
+              </p>
+              <div class="links">
+                <a class="linkbtn" href="https://hostelcafekoti.fi/" target="_blank" rel="noopener">Official site</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Hostel+Caf%C3%A9+Koti+Rovaniemi" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-type="stay">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Accommodation</span>
+                <span class="tag">Design stay</span>
+              </div>
+              <h3>Arctic TreeHouse Hotel</h3>
+              <p class="desc">
+                Iconic design accommodation near the Arctic Circle—more “splurge”, but very memorable.
+              </p>
+              <div class="links">
+                <a class="linkbtn" href="https://arctictreehousehotel.com/" target="_blank" rel="noopener">Official site</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Arctic+TreeHouse+Hotel+Rovaniemi" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+            </div>
+          </article>
+        </div><!-- /grid -->
+      </div>
+    </section>
+
+    <!-- ========================= OULU ========================= -->
+    <section id="oulu">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Oulu</h2>
+            <p class="subhead">
+              A coastal city with great summer energy: parks, islands, cycling, and long sunsets by the sea.
+              Oulu will be a European Capital of Culture in 2026 — worth a detour if you have extra time.
+            </p>
+          </div>
+        </div>
+
+        <div class="filters" role="toolbar" aria-label="Filter Oulu cards">
+          <button class="btn" data-city="oulu" data-filter="all" aria-pressed="true">Show all</button>
+          <button class="btn" data-city="oulu" data-filter="attraction" aria-pressed="false">Attractions</button>
+          <button class="btn" data-city="oulu" data-filter="nature" aria-pressed="false">Nature & outdoors</button>
+          <button class="btn" data-city="oulu" data-filter="culture" aria-pressed="false">Culture</button>
+          <button class="btn" data-city="oulu" data-filter="stay" aria-pressed="false">Accommodation</button>
+        </div>
+
+        <div class="grid" data-city-grid="oulu">
+          <article class="card" data-type="nature">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Nature & outdoors</span>
+                <span class="tag">Seaside</span>
+              </div>
+              <h3>Nallikari Beach</h3>
+              <p class="desc">
+                The classic Oulu summer hangout: sandy beach, sea breeze, sunsets, and easy walking paths.
+              </p>
+              <div class="links">
+                <a class="linkbtn" href="https://nallikari.fi/en/see-experience-enjoy/nallikari-beach/" target="_blank" rel="noopener">Official info</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Nallikari+Beach+Oulu" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-type="culture">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Culture</span>
+                <span class="tag">2026</span>
+              </div>
+              <h3>Oulu2026 (European Capital of Culture)</h3>
+              <p class="desc">
+                If you’re curious about exhibitions, festivals, and events while you’re here, start from the official programme hub.
+              </p>
+              <div class="links">
+                <a class="linkbtn" href="https://oulu2026.eu/en/" target="_blank" rel="noopener">Oulu2026 site</a>
+                <a class="linkbtn" href="https://oulu2026.eu/en/programme/culture-programme/" target="_blank" rel="noopener">Programme</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-type="attraction">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Attraction</span>
+                <span class="tag">Parks & islands</span>
+              </div>
+              <h3>City parks & islands (Hupisaaret, Pikisaari)</h3>
+              <p class="desc">
+                Oulu has lovely green pockets close to the centre—perfect for a slow afternoon walk, coffee, and photos.
+              </p>
+              <ul class="bullets">
+                <li>Hupisaaret: park-like river islands near the centre</li>
+                <li>Pikisaari: creative vibes, small galleries/workshops, food spots</li>
+              </ul>
+              <div class="links">
+                <a class="linkbtn" href="https://visitoulu.fi/en/7-summer-tips-for-oulu-what-to-do-and-see-in-oulu-this-summer/" target="_blank" rel="noopener">Summer ideas</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Hupisaaret+Oulu" target="_blank" rel="noopener">Hupisaaret in Maps</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-type="attraction">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Attraction</span>
+                <span class="tag">Add your pick</span>
+              </div>
+              <h3>Market square + local bites</h3>
+              <p class="desc">
+                Add your favourite “must-eat” or “must-see” spots in Oulu here (market hall, cafés, restaurants).
+              </p>
+              <div class="small">Tip: Oulu is very bike-friendly—renting bikes can be a fun way to explore.</div>
+            </div>
+          </article>
+
+          <!-- Accommodation: Nallikari -->
+          <article class="card" data-type="stay">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Accommodation</span>
+                <span class="tag">By the sea</span>
+              </div>
+              <h3>Nallikari Holiday Village</h3>
+              <p class="desc">
+                Great if you want seaside accommodation with cottages/apartments and the beach right there.
+              </p>
+              <div class="links">
+                <a class="linkbtn" href="https://nallikari.fi/en/nallikari-holiday-village/" target="_blank" rel="noopener">Official site</a>
+                <a class="linkbtn" href="https://www.google.com/maps/search/?api=1&query=Nallikari+Holiday+Village+Oulu" target="_blank" rel="noopener">Open in Maps</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Accommodation: city hotels -->
+          <article class="card" data-type="stay">
+            <div class="card-inner">
+              <div class="kicker">
+                <span class="tag">Accommodation</span>
+                <span class="tag">City centre</span>
+              </div>
+              <h3>Hotels in central Oulu</h3>
+              <p class="desc">
+                If you prefer to stay downtown, here are a few solid options to start with.
+              </p>
+              <ul class="bullets">
+                <li><a href="https://www.laplandhotels.com/fi/hotellit-ja-kohteet/oulu/lapland-hotels-oulu" target="_blank" rel="noopener">Lapland Hotels Oulu</a></li>
+                <li><a href="https://www.radissonhotels.com/en-us/hotels/radisson-blu-oulu" target="_blank" rel="noopener">Radisson Blu Hotel, Oulu</a></li>
+                <li><a href="https://www.scandichotels.com/en/hotels/scandic-oulu-city" target="_blank" rel="noopener">Scandic Oulu City</a></li>
+                <li><a href="https://degamlashotel.fi/en/home/" target="_blank" rel="noopener">De Gamlas Hem Hotel & Restaurant</a></li>
+              </ul>
+              <div class="small">Tip: If you’re going in peak summer weekends, booking early helps.</div>
+            </div>
+          </article>
+        </div><!-- /grid -->
+      </div>
+    </section>
+
+    <!-- ========================= PRACTICAL ========================= -->
+    <section id="practical">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Practical tips</h2>
+            <p class="subhead">A few small things that often make a big difference in the North.</p>
+          </div>
+        </div>
+
+        <div class="tipbox">
+          <ul class="bullets">
+            <li><strong>Distances feel different:</strong> things can look “close” on a map but still take time.</li>
+            <li><strong>Layers win:</strong> even summer evenings can be cool, especially near water.</li>
+            <li><strong>Mosquito plan:</strong> bring repellent for lakeside / forest evenings.</li>
+            <li><strong>Campfire etiquette:</strong> laavut are shared spaces—leave it clean for the next person.</li>
+            <li><strong>Always check hours:</strong> attractions may run seasonal schedules.</li>
+          </ul>
+          <div class="small">
+            Want this page to feel more personal? Add a short “Our favourites” section with your own restaurant list and 1–2 day-trip itineraries.
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="small">
+            Last updated by you: <strong>[add date]</strong>. Replace anything here freely—this is a starter template.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Simple filtering per city section
+    (function(){
+      function setPressed(groupButtons, activeBtn){
+        groupButtons.forEach(b => b.setAttribute("aria-pressed", String(b === activeBtn)));
+      }
+
+      function applyFilter(city, filter){
+        const grid = document.querySelector(`[data-city-grid="${city}"]`);
+        if(!grid) return;
+        const cards = Array.from(grid.querySelectorAll(".card"));
+        cards.forEach(card => {
+          const type = card.getAttribute("data-type");
+          const show = (filter === "all") || (type === filter);
+          card.style.display = show ? "" : "none";
+        });
+      }
+
+      document.querySelectorAll(".btn[data-city]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const city = btn.getAttribute("data-city");
+          const filter = btn.getAttribute("data-filter");
+          const group = Array.from(document.querySelectorAll(`.btn[data-city="${city}"]`));
+          setPressed(group, btn);
+          applyFilter(city, filter);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
