@@ -17,6 +17,15 @@
     }
   }
 
+   function setSubnavHeightVar(){
+  const subnav = document.querySelector(".subnav");
+  if(!subnav) return;
+
+  const h = Math.ceil(subnav.getBoundingClientRect().height);
+  document.documentElement.style.setProperty("--subnav-height", `${h}px`);
+}
+
+
   // ---------- Fade-in ----------
   function initFadeInContainer() {
     const c = document.querySelector(".container");
@@ -130,10 +139,14 @@
 
   // ---------- Boot ----------
   onReady(() => {
-    initFadeInContainer();
-    initCardFilters();
-    initAvailabilityModal();
-  });
+  setSubnavHeightVar();
+  window.addEventListener("resize", setSubnavHeightVar);
+
+  initFadeInContainer();
+  initCardFilters();
+  initAvailabilityModal();
+});
+
 
   // ---------- Optional: expose globally if you want ----------
   // You can call these from other pages manually if needed:
