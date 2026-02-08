@@ -1,315 +1,176 @@
+<!-- ========= ENG.html ========= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow">
+
   <title>Satu & Ville – 25.7.2026</title>
 
-  <style>
-    body{
-      margin:0;
-      font-family: system-ui, sans-serif;
-      background-color: rgba(247, 242, 241, 1);
-      overflow-x:hidden;
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
-    /* ===== VIDEO + BANNER ===== */
-    .video-container{
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      background: rgba(247, 242, 241, 1); /* tausta jos jää “palkit” */
-    }
-
-    video{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* EI leikkaa */
-      object-position: center;
-    }
-
-    .banner-image{
-      display: none;           /* shown after the video */
-      position: relative;
-      width: 100%;
-      height: auto;
-    }
-
-    .banner-image img{
-      width: 100%;
-      height: auto;            /* keeps aspect ratio */
-      display: block;
-    }
-
-    /* ===== CONTENT ===== */
-    .container{
-      width: 100%;
-      padding: 20px;
-      box-sizing: border-box;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    h1,h2,h3{ color:#4A4A4A; }
-    p{ font-size:16px; color:#4A4A4A; line-height:1.6; }
-
-    img.content-img{
-      width:100%;
-      height:auto;
-      border-radius:8px;
-      margin-top:20px;
-      display:block;
-    }
-
-    .img-caption{
-      text-align:center;
-      color:#8B7E74;
-      font-size:14px;
-      margin-top:8px;
-    }
-
-    /* Map */
-    iframe.map{
-      width: 100%;
-      max-width: 100%;
-      height: 400px;
-      border: 0;
-      border-radius: 8px;
-      display:block;
-      margin: 16px 0;
-    }
-
-    /* ===== FORM ===== */
-    form{ margin-top: 20px; }
-
-    .field{
-      margin-bottom: 16px;
-    }
-
-    label{
-      display:block;
-      font-size:16px;
-      color:#4A4A4A;
-      margin-bottom: 8px;
-    }
-
-    input[type="text"], textarea{
-      width:100%;
-      padding:10px;
-      border:1px solid #ddd;
-      border-radius:8px;
-      box-sizing:border-box;
-      font-family: inherit;
-      font-size: 16px;
-    }
-
-    textarea{
-      resize:vertical;
-      min-height: 110px;
-    }
-
-    .radio-group{
-      display:flex;
-      flex-direction: column;   /* stacked */
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    /* ( ) Text on the same line */
-    .radio-option{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      color:#4A4A4A;
-      font-size: 16px;
-    }
-
-    .radio-option input{
-      width: 18px;
-      height: 18px;
-      margin: 0;
-    }
-
-    button{
-      background-color:#8B7E74;
-      color:white;
-      padding:10px 20px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      font-size: 16px;
-    }
-
-    button:hover{
-      background-color:#7A6C60;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px){
-      p{ font-size: 15px; }
-      h2{ font-size: 24px; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- VIDEO (shown first) -->
-  <div class="video-container">
-    <video id="intro-video" autoplay muted playsinline preload="auto">
-      <source src="Video.mp4" type="video/mp4" />
-      Your browser does not support video playback.
-    </video>
+  <!-- TOP LANGUAGE SWITCH -->
+  <nav class="lang-top" aria-label="Language selection">
+    <a href="FIN.html" class="lang-link">FIT</a>
+    <span class="lang-sep">/</span>
+    <span class="lang-link active" aria-current="page">ENG</span>
+  </nav>
 
-    <!-- BANNER (shown after the video) -->
-    <div class="banner-image" id="banner">
-      <img src="banneri1.png" alt="Wedding banner" />
-    </div>
+  <!-- BANNER (always visible) -->
+  <div class="banner-image" id="banner">
+    <img src="images/banneri.png" alt="Wedding banner" />
   </div>
 
+
   <!-- CONTENT -->
-  <div class="container">
+  <div class="container is-visible">
     <section class="content">
 
+      <img class="content-img" src="images/kadet.jpeg" alt="Hands holding rings">
+      
       <p>
         We’re happy to invite you to celebrate our day with us.
         On this page you’ll find all the important wedding details – from the venues and how to get there
         to accommodation, RSVP and gifts.
       </p>
-
+      
       <h2>Date & Location</h2>
       <p>25 July 2026</p>
-      <p><strong>Ceremony:</strong> Matarengi Church at 15:00 (Finnish time)</p>
-      <p><strong>Reception:</strong> Lapland View Lodge</p>
+      <p><strong>Ceremony:</strong> Matarengi Church at 2 PM (Swedish time)</p>
+      <p><strong>Reception:</strong> Lapland View Lodge (until 1 AM...) </p>
 
-      <h3>Matarengi Church</h3>
-      <img class="content-img" src="kirkko.jpg" alt="Matarengi Church">
       <p>
-        Matarengi Church (Swedish: Övertorneå kyrka) is a church in Övertorneå, Norrbotten County, Sweden.
-        The parish’s main church in the town center was built in 1735–1737, and the separate bell tower was completed in 1763.
-        It is one of the best-preserved 18th-century churches in northern Sweden and is home to Sweden’s oldest organs still in use.
-        – Wikipedia –
+        At this point we eould like to remind you that Swedish time is 1 hour behind Finnish time. This is relevant 
+        if you travel there from Finland.  Your mobile phone might connect to Swedish service provider and automatically 
+        switch to Swedish time, but if not, just bare this in mind as our schedule will be in Swedish time.
+      </p>
+      <p>
+        The day begins with the wedding ceremony at the church. Right after the ceremony, we’ll take a group photo 
+        in front of the church. After that, you’ll have time to make your way to the reception venue, freshen up 
+        your makeup, and check in to your accommodation if needed.
+      </p>
+      <p>      
+        At the venue, the celebration starts with a welcome toast and congratulations to the couple. After this, we will 
+        serve you dinner, including drinks with the meal. As the evening goes on, the restaurant bar 
+        will be open for anyone who wishes to purchase additional drinks.
+      </p>
+      <p>        
+        Later in the evening, we’ll enjoy a relaxed time together with a live band, the first dance, 
+        and lots of fun—just as a great wedding celebration should be.
+      </p>
+      <p> 
+        If you wish to make a speech at the reception, please let us know so we can arrange a timeslot for you. You can contact
+        maid of honor Heli on +358 40 701 9396 or by email <a href="mailto:meanhaat2026@gmail.com">meanhaat2026@gmail.com</a>
+      </p>
+      
+      <h3>Matarengi Church</h3>
+      <img class="content-img" src="images/Kyrka.jpg" alt="Matarengi Church">
+      <p>
+        Matarengi Church (Swedish: Övertorneå kyrka) is located in the center of Övertorneå in northern Sweden. 
+        This beautiful historic church was built between 1735 and 1737 and is one of the best-preserved 18th-century 
+        churches in the region.
+      </p>
+      <p>
+      The church’s timeless atmosphere, complemented by Sweden’s oldest pipe organ still in use, 
+      creates a dignified and memorable setting for the wedding ceremony.
       </p>
 
       <h3>Lapland View Lodge</h3>
-      <img class="content-img" src="lodge.jpg" alt="Lapland View Lodge">
+      <img class="content-img" src="images/laplandviewlodge.jpg" alt="Lapland View Lodge">
       <p>
-        Lapland View Lodge is situated on the Luppio Mountain next to Övertorneå. Built in harmony with nature, 
-        this landscape hotel was ready to host guests in December 2021 and is now open all year round.  
-        In the two main buildings with an adjoining terrace you'll find the reception, restaurant, bar and a cozy lounge with fireplace. 
-        In our restaurant we embrace the local cuisine and serve meals with local ingredients from Lapland. 
-        The buildings and spa area as well as the 40 hotel cabins have big windows for you to fully enjoy the breathtaking views 
-        over the Torne River Valley and the wide area. – Lapland View Lodge –
+        Lapland View Lodge is located on Luppioberget hill, just outside Övertorneå. Built in harmony with the 
+        surrounding nature, this scenic hotel is open year-round and offers a stunning setting for a wedding celebration.
+      </p>
+      <p>
+        The two main buildings house the reception, restaurant, bar, and a cozy lounge with a fireplace. 
+        The restaurant serves dishes prepared with locally sourced ingredients. 
+        The hotel buildings, spa area, and 40 cabins feature large windows that offer 
+        breathtaking views over the Tornio River Valley and the vast northern scenery.
+      </p>
+
+      <h3>Why especially here?</h3>
+      <p>
+        Luppioberget hill is not only the childhood summer trip destination of Satu, but it also perfectly mirrors Ville's inner 
+        landscape with its views of the Tornionjoki River and the surrounding hills. Additionally, it is located almost exactly 
+        halfway between the childhood homes of the couple (Satu 67 km and Ville 62 km), making it a pretty good compromise 
+        in terms of location!
       </p>
 
       <h2>How do I get there?</h2>
-      <p>You can find Matarengi Church at: Matarengivägen 31, 957 31 Övertorneå, Sweden</p>
+      <p>Matarengi Church: Matarengivägen 31, 957 31 Övertorneå, Sweden</p>
       <p>Lapland View Lodge: Luppio 202, 957 91 Övertorneå, Sweden.</p>
 
-      <!-- My Maps embed -->
-      <iframe
-        class="map"
-        src="https://www.google.com/maps/d/embed?mid=1yU7i12njITDWcEyxvYRuPLUAWe_k_lQ&ehbc=2E312F&noprof=1">
-      </iframe>
-
+      <a href="travelinfo.html">More info</a>
+      
       <p>
-        You can also follow the road signs below after crossing the Aavasaksa bridge to the Swedish side.
+        You can also follow the signs below after crossing the Aavasaksa bridge to the Swedish side.
       </p>
 
-      <img class="content-img" src="viitta1.jpg" alt="Route to the church">
-      <div class="img-caption">Route to the church.</div>
-
-      <img class="content-img" src="viitta2.jpg" alt="Route to the reception venue">
-      <div class="img-caption">Route to the reception venue.</div>
-
+      <div class="sign-container">
+        <div class="sign-item">
+          <img class="sign-img" src="images/viitta1.jpg" alt="Route to the church">
+          <div class="img-caption">Route to the church</div>
+        </div>
+        <div class="sign-item">
+          <img class="sign-img" src="images/viitta.jpg" alt="Route to the reception venue">
+          <div class="img-caption">Route to the reception venue</div>
+        </div>
+      </div>
+      
       <h2>Accommodation</h2>
-      <p>There are several accommodation options near the venue – here are the couple’s recommendations.</p>
-
+      <p>There are several accommodation options near the venue – here are the couple’s recommendations. Both options offer 15% discount with reservation code <strong>MEANHAAT</strong>. You 
+      can also ask for early check-in and/or late check-out for an additional price.</p>
+      
       <h3>Lapland View Lodge</h3>
       <p>Lapland View Lodge is the reception venue, and the couple will stay here.</p>
       <p>
         Lapland View Lodge offers high-quality accommodation in cabins with large glass windows.
-        A spa area and sauna with stunning views are available for an additional fee.
+        A spa area and sauna with stunning views are available for an additional fee. The resort management has promised to open 
+        the spa area as an exception in the noon hours the day after the wedding.
       </p>
-      <p>
-        If you choose to stay here, the prices below apply when you use the code <strong>MEÄNHÄÄT</strong> when booking.
-      </p>
-      <p>Standard Cabin (max 2 people): ??? SEK/night</p>
-      <p>Premium Cabin (max 2 people): ??? SEK/night</p>
-      <p>Family Cabin (max 4 people): ??? SEK/night</p>
-      <p>Family Premium Cabin (max 4 people): ??? SEK/night</p>
-      <p>
-        For more information, <a href="https://www.explorethenorth.se/our-lodges/lapland-view-lodge" target="_blank">click here</a>.
-      </p>
-
+      <p></p>
+      <p>For more information, <a href="https://www.explorethenorth.se/our-lodges/lapland-view-lodge" target="_blank">click here</a>.</p>
+      <p>You can book by email: <a href="mailto:laplandviewlodge@explorethenorth.se">laplandviewlodge@explorethenorth.se</a></p>
+      
       <h3>Matarengi Lodge</h3>
       <p>
         Matarengi Lodge offers high-quality hotel accommodation in the center of Matarengi, about 10 km from the venue.
         The hotel has a spa area and sauna. From the reception venue you can get there easily, for example by taxi.
       </p>
-      <p>
-        If you choose to stay here, the prices below apply when you use the code <strong>MEÄNHÄÄT</strong> when booking.
-      </p>
-      <p>Double Room (max 2 people): ??? SEK/night</p>
-      <p>Double Room with balcony (max 2 people): ??? SEK/night</p>
-      <p>Family Room (max 4 people): ??? SEK/night</p>
-      <p>
-        For more information, <a href="https://www.explorethenorth.se/our-lodges/matarengi-lodge" target="_blank">click here</a>.
-      </p>
-
+      <p></p>
+      <p>For more information, <a href="https://www.explorethenorth.se/our-lodges/matarengi-lodge" target="_blank">click here</a>.</p>
+      <p>You can book both by email: <a href="mailto:matarengilodge@explorethenorth.se">matarengilodge@explorethenorth.se</a></p>
+      
       <h2>RSVP</h2>
-      <form>
-        <div class="field">
-          <label for="name">Name (required)</label>
-          <input type="text" id="name" name="name" required placeholder="First name Last name" />
-        </div>
 
-        <div class="field">
-          <label>Attendance (required)</label>
-          <div class="radio-group">
-            <label class="radio-option">
-              <input type="radio" name="attendance" value="Attending" required />
-              I will attend
-            </label>
+       <p><strong>We kindly ask you to RSVP by 22 May 2026</strong></p>
+      <p>Please use this <a href="Form.html">form </a>.</p>
+      
+      <h2>A Little Note on Gifts</h2>
+      <p>
+      We already have everything we need at home.
+      Having you with us on our special day is truly the best gift we could ask for.
+      </p>
+      <p>
+      If you’d still like to give something, a small contribution to our honeymoon fund
+      is more than enough.
+      </p>
 
-            <label class="radio-option">
-              <input type="radio" name="attendance" value="Not attending" required />
-              Unfortunately I can’t make it
-            </label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="message">Additional info (e.g. food allergies, accommodation, etc.)</label>
-          <textarea id="message" name="message" placeholder="Write here"></textarea>
-        </div>
-
-        <button type="submit">Send RSVP</button>
-      </form>
-
-      <h2>Gifts</h2>
-      <p>No gifts – cash only!!!</p>
+      <p>Satu Peura</p>
+      <p><strong>BIC:</strong> SBANFIHH</p>
+      <p><strong>IBAN:</strong> FI51 3939 0035 0660 67</p>
 
     </section>
   </div>
-
-  <script>
-    // Video plays once, then hides and shows the banner
-    const video = document.getElementById('intro-video');
-    const banner = document.getElementById('banner');
-
-    video.addEventListener('ended', () => {
-      video.style.display = 'none';
-      banner.style.display = 'block';
-
-      // shrink video container to banner height (so no empty 100vh space remains)
-      const container = document.querySelector('.video-container');
-      container.style.height = 'auto';
-    });
-  </script>
-
+  
 </body>
 </html>
