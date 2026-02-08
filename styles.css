@@ -403,6 +403,9 @@ section { scroll-margin-top: calc(var(--banner-height) + 18px); }
   gap: 10px;
   margin: 12px 0 14px;
 }
+
+.filters + .filters{ margin-top: -4px; }
+
 .filter-btn{
   appearance: none;
   font-family: inherit;
