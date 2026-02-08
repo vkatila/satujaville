@@ -1,152 +1,50 @@
+<!-- ========= index.html ========= -->
 <!DOCTYPE html>
 <html lang="fi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Satu & Ville – Language / Kieli</title>
+  <meta name="robots" content="noindex, nofollow">
 
-  <!-- Elegant fonts -->
+  <title>Satu & Ville – Kieli / Language</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="styles.css" />
+
   <style>
-    :root{
-      --bg: rgba(247, 242, 241, 1);
-      --text: #4A4A4A;
-      --muted: rgba(74,74,74,0.7);
-      --line: rgba(74,74,74,0.35);
-    }
-
-    body{
-      margin:0;
-      font-family: "Cormorant Garamond", serif;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background-color: var(--bg);
-      overflow:hidden;
-      color: var(--text);
-    }
-
-    /* ===== BACKGROUND IMAGE ===== */
-    .bg{
-      position: fixed;
-      inset: 0;
-      background:
-        url("bannerikielet.png") center top / contain no-repeat,
-        var(--bg);
-      z-index: -2;
-    }
-
-    /* Soft overlay for readability */
-    .overlay{
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(
-        circle at center,
-        rgba(247,242,241,0.15),
-        rgba(247,242,241,0.55)
-      );
-      z-index: -1;
-    }
-
-    /* ===== LANGUAGE SELECT ===== */
-    .lang{
-      text-align: center;
-      margin-top: 150px; /* moved UP */
-      width: min(520px, calc(100% - 32px));
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeIn 1.2s ease forwards;
-    }
-
-    @keyframes fadeIn{
-      to{
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .prompt{
-      font-size: 18px;
-      letter-spacing: 0.6px;
-      color: var(--muted);
-      margin: 0 0 22px 0;
-    }
-
-    .choices{
-      font-family: "Great Vibes", cursive;
-      font-size: 54px;
-      line-height: 1.15;
-      display: grid;
-      gap: 14px;
-      margin: 0;
-    }
-
-    .choice{
-      position: relative;
-      display: inline-block;
-      color: var(--text);
-      text-decoration: none;
-      padding: 2px 8px;
-      transition: opacity 160ms ease, transform 160ms ease;
-    }
-
-    .choice::after{
-      content:"";
-      position:absolute;
-      left: 10%;
-      right: 10%;
-      bottom: -6px;
-      height: 1px;
-      background: var(--line);
-      opacity: 0;
-      transform: scaleX(0.6);
-      transition: opacity 160ms ease, transform 160ms ease;
-    }
-
-    .choice:hover{
-      opacity: 0.85;
-      transform: translateY(-2px);
-    }
-
-    .choice:hover::after{
-      opacity: 1;
-      transform: scaleX(1);
-    }
-
-    .hint{
-      margin-top: 22px;
-      font-size: 16px;
-      color: var(--muted);
-      letter-spacing: 0.4px;
-    }
-
-    /* Mobile tuning */
-    @media (max-width: 480px){
-      .lang{ margin-top: 120px; }
-      .choices{ font-size: 44px; }
-      .prompt{ font-size: 16px; }
+  .index-overlay {
+    display: none;
     }
   </style>
+
+  
 </head>
 
-<body>
+<body class="index-page">
+  
+  <div class="index-bg" aria-hidden="true"></div>
+  <div class="index-overlay" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <div class="bg" aria-hidden="true"></div>
-  <div class="overlay" aria-hidden="true"></div>
+  <!-- BANNER (always visible) -->
+  <div class="banner-image" id="banner">
+    <img src="images/banneri.png" alt="Wedding banner" />
+  </div>
 
-  <main class="lang" aria-label="Language selection">
-    <p class="prompt">Valitse kieli / Choose a language</p>
+  <main class="index-lang" aria-label="Language selection">
+    <div class="index-lang-inner">
+      <p class="index-prompt">Valitte kieli / Choose a language</p>
 
-    <div class="choices">
-      <a class="choice" href="FIN.html">Suomeksi</a>
-      <a class="choice" href="ENG.html">In English</a>
+      <div class="index-choices">  
+        <a class="index-choice" href="FIN.html">Meänkieli</a>
+        <a class="index-choice" href="ENG.html">In English</a>
+      </div>
+
+      <p class="index-hint">Satu &amp; Ville · 25.7.2026</p>
     </div>
-
-    <p class="hint">Satu &amp; Ville · 25.7.2026</p>
   </main>
 
 </body>
