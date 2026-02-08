@@ -9,6 +9,9 @@
   <!-- Your wedding site stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- Your wedding site javascript -->
+  <script src="site.js" defer></script>
+
   <!-- Optional: remove if your wedding site already loads these globally -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -856,109 +859,5 @@
     </div>
   </main>
 
-  <script>
-    // Fade-in behavior from your CSS (.container.is-visible)
-    window.addEventListener("DOMContentLoaded", () => {
-      const c = document.querySelector(".container");
-      if (c) c.classList.add("is-visible");
-    });
-
-    // Per-city filtering (cards) + optional area filter (used in Oulu)
-    (function(){
-      const state = {}; // e.g. state["oulu"] = { type: "all", area: "all" }
-    
-      function ensureCityState(city){
-        if(!state[city]) state[city] = { type: "all", area: "all" };
-        return state[city];
-      }
-    
-      function setPressed(buttons, activeBtn){
-        buttons.forEach(b => b.setAttribute("aria-pressed", String(b === activeBtn)));
-      }
-    
-      function applyFilter(city){
-        const grid = document.querySelector(`[data-city-grid="${city}"]`);
-        if(!grid) return;
-    
-        const s = ensureCityState(city);
-        const cards = Array.from(grid.querySelectorAll(".card"));
-    
-        cards.forEach(card => {
-          const type = card.getAttribute("data-type");
-          const area = card.getAttribute("data-area") || "all";
-    
-          const typeOk = (s.type === "all") || (type === s.type);
-          const areaOk = (s.area === "all") || (area === s.area);
-    
-          card.style.display = (typeOk && areaOk) ? "" : "none";
-        });
-      }
-    
-      document.querySelectorAll(".filter-btn[data-city]").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const city = btn.getAttribute("data-city");
-          const filter = btn.getAttribute("data-filter");
-          const scope = btn.getAttribute("data-scope") || "type"; // default = type filter
-    
-          const s = ensureCityState(city);
-          if(scope === "area") s.area = filter;
-          else s.type = filter;
-    
-          // update pressed states only within the same city+scope group
-          const group = Array.from(document.querySelectorAll(`.filter-btn[data-city="${city}"][data-scope="${scope}"]`))
-            .concat(scope === "type"
-              ? Array.from(document.querySelectorAll(`.filter-btn[data-city="${city}"]:not([data-scope])`))
-              : []);
-    
-          // If scope is type and you don't use data-scope on type buttons, handle them:
-          if(scope === "type"){
-            const typeButtons = Array.from(document.querySelectorAll(`.filter-btn[data-city="${city}"]:not([data-scope])`));
-            setPressed(typeButtons, btn);
-          } else {
-            const areaButtons = Array.from(document.querySelectorAll(`.filter-btn[data-city="${city}"][data-scope="area"]`));
-            setPressed(areaButtons, btn);
-          }
-    
-          applyFilter(city);
-        });
-      });
-    })();
-
-
-    // Availability modal open/close
-    (function(){
-      const openBtn = document.getElementById("openAvailability");
-      const modal = document.getElementById("availabilityModal");
-      const closeBtn = document.getElementById("closeAvailability");
-
-      if(!openBtn || !modal) return;
-
-      function open(){
-        modal.classList.add("is-open");
-        modal.setAttribute("aria-hidden", "false");
-        if (closeBtn) closeBtn.focus();
-        document.addEventListener("keydown", onKeydown);
-      }
-
-      function close(){
-        modal.classList.remove("is-open");
-        modal.setAttribute("aria-hidden", "true");
-        openBtn.focus();
-        document.removeEventListener("keydown", onKeydown);
-      }
-
-      function onKeydown(e){
-        if(e.key === "Escape") close();
-      }
-
-      openBtn.addEventListener("click", open);
-      if(closeBtn) closeBtn.addEventListener("click", close);
-
-      modal.addEventListener("click", (e) => {
-        const target = e.target;
-        if (target && target.getAttribute && target.getAttribute("data-close") === "1") close();
-      });
-    })();
-  </script>
 </body>
 </html>
