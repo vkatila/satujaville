@@ -7,6 +7,7 @@
   --accent: #8B7E74;
   --accentHover: #7A6C60;
   --banner-height: clamp(120px, 25vh, 260px);
+  --subnav-height: 56px;
 }
 
 *{ box-sizing: border-box; }
@@ -369,10 +370,10 @@ button:hover{
   }
 }
 
-/* ========= travel page additions (move to styles.css) ========= */
+/* ========= travel page additions ========= */
 
-/* Anchor jumps should land below fixed banner */
-section { scroll-margin-top: calc(var(--banner-height) + 18px); }
+/* Anchor jumps should land below destination links */
+scroll-margin-top: calc(var(--banner-height) + var(--subnav-height) + 18px); }
 
 /* Soft in-page nav that fits the wedding style */
 .subnav{
@@ -450,6 +451,9 @@ section { scroll-margin-top: calc(var(--banner-height) + 18px); }
 }
 @media (max-width: 900px){
   .card{ grid-column: span 12; }
+}
+@media (max-width: 768px){
+  :root{ --subnav-height: 86px; }
 }
 
 .card-inner{
