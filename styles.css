@@ -372,30 +372,12 @@ button:hover{
 
 /* ========= travel page additions ========= */
 
-/* Anchor jumps should land below destination links */
-scroll-margin-top: calc(var(--banner-height) + var(--subnav-height) + 18px); }
+/* Anchor jumps should land below banner + sticky subnav */
+section{
+  scroll-margin-top: calc(var(--banner-height) + var(--subnav-height) + 18px);
+}
 
 /* Soft in-page nav that fits the wedding style */
-.subnav{
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 12px 0;
-  margin: 18px 0 22px;
-  color: var(--muted);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.subnav a{
-  text-decoration: none;
-  letter-spacing: 0.4px;
-  padding: 2px 6px;
-  border-radius: 6px;
-}
-.subnav a:hover{
-  background: rgba(139,126,116,0.10);
-  text-decoration: none;
-}
 
 /* Filter buttons */
 .filters{
@@ -451,9 +433,6 @@ scroll-margin-top: calc(var(--banner-height) + var(--subnav-height) + 18px); }
 }
 @media (max-width: 900px){
   .card{ grid-column: span 12; }
-}
-@media (max-width: 768px){
-  :root{ --subnav-height: 86px; }
 }
 
 .card-inner{
@@ -608,13 +587,35 @@ scroll-margin-top: calc(var(--banner-height) + var(--subnav-height) + 18px); }
 }
 
 /* Sticky sub navigation under the fixed banner */
+/* Soft in-page nav that fits the wedding style + sticky under banner */
 .subnav{
   position: sticky;
   top: var(--banner-height);
-  z-index: 5; /* above content (2), around banner (4) */
-  background: rgba(253, 246, 247, 0.92); /* same as --bg, slightly transparent */
+  z-index: 5;
+
+  background: rgba(253, 246, 247, 0.92);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  margin: 18px 0 22px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.subnav a{
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+.subnav a:hover{
+  background: rgba(139,126,116,0.10);
+  text-decoration: none;
+}
 
   /* keep your existing subnav styles too */
   border-top: 1px solid var(--line);
@@ -626,4 +627,8 @@ scroll-margin-top: calc(var(--banner-height) + var(--subnav-height) + 18px); }
   flex-wrap: wrap;
   gap: 12px;
 }
+@media (max-width: 768px){
+  :root{ --subnav-height: 86px; }
+}
+
 
