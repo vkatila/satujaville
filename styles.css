@@ -602,3 +602,24 @@ section { scroll-margin-top: calc(var(--banner-height) + 18px); }
 .availability-modal__close:hover{
   background: rgba(139,126,116,0.12);
 }
+
+/* Sticky sub navigation under the fixed banner */
+.subnav{
+  position: sticky;
+  top: var(--banner-height);
+  z-index: 5; /* above content (2), around banner (4) */
+  background: rgba(253, 246, 247, 0.92); /* same as --bg, slightly transparent */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  /* keep your existing subnav styles too */
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  margin: 18px 0 22px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
