@@ -328,6 +328,22 @@
         Oulu will be a European Capital of Culture in 2026 — worth a detour if you have extra time.
       </p>
 
+      <h3>Hailuoto (day trip from Oulu)</h3>
+      <p>
+        The dunes stretching as far as the eye can see, quaint fishing boats, and the rural village surroundings create the unique atmosphere of the
+        largest island in the Bay of Bothnia. Hailuoto is accessible by ferry—an experience in itself—and is home to Hailuodon Panimo,
+        Finland’s first organic brewery, where you can enjoy carefully crafted beverages in the pub and pick up something from their small shop to take home.
+        Complete the visit by spotting the magnificent lighthouse and settling in for a good night’s sleep at the adjacent Arctic Lighthouse Hotel - Luovo,
+        a former pilot station offering beautiful views over the fishing boats and seabirds of the Bay of Bothnia.
+      </p>
+
+      <div class="filters" role="toolbar" aria-label="Filter Oulu area">
+        <button class="filter-btn" data-city="oulu" data-scope="area" data-filter="all" aria-pressed="true">Show both</button>
+        <button class="filter-btn" data-city="oulu" data-scope="area" data-filter="oulu" aria-pressed="false">Oulu</button>
+        <button class="filter-btn" data-city="oulu" data-scope="area" data-filter="hailuoto" aria-pressed="false">Hailuoto</button>
+      </div>
+
+
       <div class="filters" role="toolbar" aria-label="Filter Oulu cards">
         <button class="filter-btn" data-city="oulu" data-filter="all" aria-pressed="true">Show all</button>
         <button class="filter-btn" data-city="oulu" data-filter="attraction" aria-pressed="false">Attractions</button>
@@ -337,21 +353,21 @@
       </div>
 
       <div class="card-grid" data-city-grid="oulu">
-        <article class="card" data-type="attraction">
-  <div class="card-inner">
-    <div class="card-kicker">
-      <span class="pill">Attraction</span>
-      <span class="pill">Official guide</span>
-    </div>
-    <h4 class="card-title">Visit Oulu</h4>
-    <p>Official visitor info: sights, events, islands, cycling routes, and practical tips.</p>
-    <div class="card-links">
-      <a href="https://visitoulu.fi/en/" target="_blank" rel="noopener">Official site</a>
-    </div>
-  </div>
-</article>
+        <article class="card" data-type="attraction" data-area="oulu">
+          <div class="card-inner">
+            <div class="card-kicker">
+              <span class="pill">Attraction</span>
+              <span class="pill">Official guide</span>
+            </div>
+            <h4 class="card-title">Visit Oulu</h4>
+            <p>Official visitor info: sights, events, islands, cycling routes, and practical tips.</p>
+            <div class="card-links">
+              <a href="https://visitoulu.fi/en/" target="_blank" rel="noopener">Official site</a>
+            </div>
+          </div>
+        </article>
         
-        <article class="card" data-type="nature">
+        <article class="card" data-type="nature" data-area="oulu">
           <div class="card-inner">
             <div class="card-kicker">
               <span class="pill">Nature</span>
@@ -366,7 +382,7 @@
           </div>
         </article>
 
-        <article class="card" data-type="culture">
+        <article class="card" data-type="culture" data-area="oulu">
           <div class="card-inner">
             <div class="card-kicker">
               <span class="pill">Culture</span>
@@ -381,7 +397,7 @@
           </div>
         </article>
 
-        <article class="card" data-type="attraction">
+        <article class="card" data-type="attraction" data-area="oulu">
           <div class="card-inner">
             <div class="card-kicker">
               <span class="pill">Attraction</span>
@@ -396,7 +412,7 @@
           </div>
         </article>
 
-        <article class="card" data-type="stay">
+        <article class="card" data-type="stay" data-area="oulu">
           <div class="card-inner">
             <div class="card-kicker">
               <span class="pill">Accommodation</span>
@@ -411,7 +427,7 @@
           </div>
         </article>
 
-        <article class="card" data-type="stay">
+        <article class="card" data-type="stay" data-area="oulu">
           <div class="card-inner">
             <div class="card-kicker">
               <span class="pill">Accommodation</span>
@@ -425,13 +441,80 @@
             </ul>
           </div>
         </article>
+
+        <!-- HAILUOTO: Official guide -->
+        <article class="card" data-type="attraction" data-area="hailuoto">
+          <div class="card-inner">
+            <div class="card-kicker">
+              <span class="pill">Attraction</span>
+              <span class="pill">Official guide</span>
+            </div>
+            <h4 class="card-title">Visit Hailuoto</h4>
+            <p>Best starting point for ferry info, sights, events, and seasonal tips.</p>
+            <div class="card-links">
+              <a href="https://visithailuoto.fi/en" target="_blank" rel="noopener">Official site</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Hailuoto" target="_blank" rel="noopener">Open in Maps</a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- HAILUOTO: Nature -->
+        <article class="card" data-type="nature" data-area="hailuoto">
+          <div class="card-inner">
+            <div class="card-kicker">
+              <span class="pill">Nature</span>
+              <span class="pill">Dunes & sea air</span>
+            </div>
+            <h4 class="card-title">Dunes, beaches & birdlife</h4>
+            <p>Wide open landscapes, long sandy shores, and calm island nature — perfect for a slow outdoor day.</p>
+            <ul>
+              <li>Bring layers: coastal wind can surprise</li>
+              <li>Great for photos and sunset walks</li>
+            </ul>
+            <div class="card-links">
+              <a href="https://visithailuoto.fi/en" target="_blank" rel="noopener">More nature ideas</a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- HAILUOTO: Culture -->
+        <article class="card" data-type="culture" data-area="hailuoto">
+          <div class="card-inner">
+            <div class="card-kicker">
+              <span class="pill">Culture</span>
+              <span class="pill">Local flavour</span>
+            </div>
+            <h4 class="card-title">Hailuodon Panimo (organic brewery)</h4>
+            <p>Finland’s first organic brewery — enjoy a drink at the pub and pick up something from the shop to take home.</p>
+            <div class="card-links">
+              <a href="https://visithailuoto.fi/en" target="_blank" rel="noopener">Info via Visit Hailuoto</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Hailuodon+Panimo" target="_blank" rel="noopener">Open in Maps</a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- HAILUOTO: Accommodation -->
+        <article class="card" data-type="stay" data-area="hailuoto">
+          <div class="card-inner">
+            <div class="card-kicker">
+              <span class="pill">Accommodation</span>
+              <span class="pill">Seaside views</span>
+            </div>
+            <h4 class="card-title">Arctic Lighthouse Hotel – Luovo</h4>
+            <p>A former pilot station next to the lighthouse, with beautiful views over fishing boats and seabirds of the Bay of Bothnia.</p>
+            <div class="card-links">
+              <a href="https://www.luovo.com" target="_blank" rel="noopener">Official site</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Luovo+Arctic+Lighthouse+Hotel+Hailuoto" target="_blank" rel="noopener">Open in Maps</a>
+            </div>
+          </div>
+        </article>
       </div>
 
       <div class="divider"></div>
     </section>
     
     <!-- ========================= TORNIO ========================= -->
-<section id="tornio">
+  <section id="tornio">
   <h2>Tornio</h2>
 
   <p>
@@ -780,34 +863,67 @@
       if (c) c.classList.add("is-visible");
     });
 
-    // Per-city filtering (cards)
+    // Per-city filtering (cards) + optional area filter (used in Oulu)
     (function(){
-      function setPressed(groupButtons, activeBtn){
-        groupButtons.forEach(b => b.setAttribute("aria-pressed", String(b === activeBtn)));
+      const state = {}; // e.g. state["oulu"] = { type: "all", area: "all" }
+    
+      function ensureCityState(city){
+        if(!state[city]) state[city] = { type: "all", area: "all" };
+        return state[city];
       }
-
-      function applyFilter(city, filter){
+    
+      function setPressed(buttons, activeBtn){
+        buttons.forEach(b => b.setAttribute("aria-pressed", String(b === activeBtn)));
+      }
+    
+      function applyFilter(city){
         const grid = document.querySelector(`[data-city-grid="${city}"]`);
         if(!grid) return;
-
+    
+        const s = ensureCityState(city);
         const cards = Array.from(grid.querySelectorAll(".card"));
+    
         cards.forEach(card => {
           const type = card.getAttribute("data-type");
-          const show = (filter === "all") || (type === filter);
-          card.style.display = show ? "" : "none";
+          const area = card.getAttribute("data-area") || "all";
+    
+          const typeOk = (s.type === "all") || (type === s.type);
+          const areaOk = (s.area === "all") || (area === s.area);
+    
+          card.style.display = (typeOk && areaOk) ? "" : "none";
         });
       }
-
+    
       document.querySelectorAll(".filter-btn[data-city]").forEach(btn => {
         btn.addEventListener("click", () => {
           const city = btn.getAttribute("data-city");
           const filter = btn.getAttribute("data-filter");
-          const group = Array.from(document.querySelectorAll(`.filter-btn[data-city="${city}"]`));
-          setPressed(group, btn);
-          applyFilter(city, filter);
+          const scope = btn.getAttribute("data-scope") || "type"; // default = type filter
+    
+          const s = ensureCityState(city);
+          if(scope === "area") s.area = filter;
+          else s.type = filter;
+    
+          // update pressed states only within the same city+scope group
+          const group = Array.from(document.querySelectorAll(`.filter-btn[data-city="${city}"][data-scope="${scope}"]`))
+            .concat(scope === "type"
+              ? Array.from(document.querySelectorAll(`.filter-btn[data-city="${city}"]:not([data-scope])`))
+              : []);
+    
+          // If scope is type and you don't use data-scope on type buttons, handle them:
+          if(scope === "type"){
+            const typeButtons = Array.from(document.querySelectorAll(`.filter-btn[data-city="${city}"]:not([data-scope])`));
+            setPressed(typeButtons, btn);
+          } else {
+            const areaButtons = Array.from(document.querySelectorAll(`.filter-btn[data-city="${city}"][data-scope="area"]`));
+            setPressed(areaButtons, btn);
+          }
+    
+          applyFilter(city);
         });
       });
     })();
+
 
     // Availability modal open/close
     (function(){
